@@ -1,4 +1,4 @@
-package RIEIT.model;
+package RIEIT;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

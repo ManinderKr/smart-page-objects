@@ -1,4 +1,4 @@
-package RIEIT.model;
+package RIEIT;
 
 
 public class EmailID {

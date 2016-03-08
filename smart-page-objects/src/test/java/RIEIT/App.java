@@ -1,4 +1,5 @@
-package RIEIT.model;
+package RIEIT;
+
 public class App {
 
 	public static void main(String[] args) {

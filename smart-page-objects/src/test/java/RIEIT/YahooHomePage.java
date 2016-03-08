@@ -1,9 +1,11 @@
- package RIEIT.model;
+ package RIEIT;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class YahooHomePage implements ILib{
+import RIEIT.model.Page;
+
+public class YahooHomePage implements Page{
 	public String url;
 	
 	
@@ -12,7 +14,7 @@ public class YahooHomePage implements ILib{
 		 this.url=url;
 	 }
 	
-	public String url() {
+	public String getUrl() {
 		
 		return url;
 	}
