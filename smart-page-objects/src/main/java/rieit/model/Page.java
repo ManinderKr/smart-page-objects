@@ -1,8 +1,8 @@
-package RIEIT.model;
+package rieit.model;
 
 public interface Page {
 
-	public String geturl();
+	public String getUrl();
 
 	public boolean isReady();
 
