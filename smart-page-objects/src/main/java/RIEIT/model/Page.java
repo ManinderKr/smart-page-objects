@@ -1,13 +1,13 @@
 package RIEIT.model;
 
-public interface ILib {
+public interface Page {
 
-	public String url();
-	
+	public String geturl();
+
 	public boolean isReady();
-	
+
 	public void open();
 
 	public void reload();
-	
+
 }
