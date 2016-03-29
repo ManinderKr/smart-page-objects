@@ -17,21 +17,22 @@ public class DriverFactory
 		return instance;
 	}
 
-	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>()
+	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>()   // thread local driver object for WebDriver.
 	{
 		@Override
 		protected WebDriver initialValue()
 		{
-			return new FirefoxDriver();
+			return new FirefoxDriver();    // can be replaced with other browser drivers
+			
 		}
 	};
 
-	public WebDriver getDriver()
+	public WebDriver getDriver()      // call this method to get the driver object and launch the browser
 	{
 		return driver.get();
 	}
 
-	public void removeDriver()
+	public void removeDriver()       // Quits the driver and closes the browser
 	{
 		driver.get().quit();
       	driver.remove();

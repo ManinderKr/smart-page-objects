@@ -9,21 +9,25 @@ public interface PageComponent {
 	 * ({@link By}) to the caller. The caller can then use the returned locator
 	 * to locate this specific {@link PageComponent} within the Page.
 	 * 
-	 * @return
+	 * @return an instance of {@link By} locator that uniquely identifies this
+	 *         components in a page.
 	 */
 	public By getLocator();
 
 	/**
-	 * TODO
+	 * {@link PageComponent}{@link #isEnabled()} checks the locator or component
+	 * on page is enabled or not.
 	 * 
-	 * @return
+	 * @return <code>true</code> if this component is enabled on a page, else
+	 *         returns <code>false</code>.
 	 */
 	public boolean isEnabled();
 
 	/**
-	 * TODO
+	 * {@link PageComponent}{@link #isVisible()} checks the locator or component
+	 * on page is visible on page or not.
 	 * 
-	 * @return
+	 * @return <code>true</code> if this component is visible on a page, else return <code>false</code>.
 	 */
 	public boolean isVisible();
 
