@@ -11,7 +11,8 @@ public abstract class BasePage {
 	private String url = "";  
 
 	/**
-	 * {@link BasePage}{@link #isReady()} returns True only when the page is ready for access.
+	 * {@link BasePage}{@link #isReady()} returns True only when the page is ready (i.e. components or  
+	 * locators on the page is enabled and visible) for access.
 	 */
 	public abstract boolean isReady();
 	

@@ -22,6 +22,6 @@ public class SearchButtonComponent extends PageComponentSupport {
 	 */
 	
 	public void click() {
-		DriverFactory.getInstance().getDriver().findElement(searchbutton).click();
+		DriverFactory.getInstance().getDriver().findElement(searchbutton);
 	}
 }

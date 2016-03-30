@@ -25,7 +25,8 @@ public class SearchBoxComponent extends PageComponentSupport {
 		DriverFactory.getInstance().getDriver().findElement(searchbox).sendKeys(text);			
 	}
 
-
+	
+	
 }
 
 
