@@ -1,27 +1,22 @@
 package rieit.page;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class Google extends BasePage {
 
-	private List<PageComponent> googlePageComponents = new ArrayList<PageComponent>();
+	private List<PageComponent> googlePageComponents;
 		
-	private List<PageComponent> searchBoxComponents = new ArrayList<PageComponent>();
-				
-	private List<PageComponent> searchButtonComponents = new ArrayList<PageComponent>();
+	
 				
 	public List<PageComponent> getGooglePageComponents() {
 		return googlePageComponents;
 	}
 
 	public Google(String url, List<PageComponent> pageComponents) {
-		super(url);
-		this.googlePageComponents = pageComponents;
-
-		pageComponents.add(new SearchBoxComponent(searchBoxComponents));	
-		pageComponents.add(new SearchButtonComponent(searchButtonComponents));	
+	super(url);
+	this.googlePageComponents = pageComponents;			
 	}
 	    
 	@Override

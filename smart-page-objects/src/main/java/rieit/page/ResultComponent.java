@@ -8,7 +8,7 @@ import rieit.DriverFactory;
 
 public class ResultComponent extends PageComponentSupport{
 
-	static By result=  By.className("big");
+	static By result=  By.id("rso");
 	
 	public ResultComponent( List<PageComponent> subComponents) {
 		super(result, subComponents);
@@ -20,7 +20,6 @@ public class ResultComponent extends PageComponentSupport{
 	 */
 	
 	public void showResult(){
-		
 		DriverFactory.getInstance().getDriver().findElement(result);			
 	}
 
