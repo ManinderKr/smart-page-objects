@@ -8,6 +8,7 @@ public abstract class BasePage {
 	
 	private WebDriver driver = DriverFactory.getInstance().getDriver();      // This will invoke your WebDriver and launches the browser
 	
+	
 	private String url = "";  
 
 	/**

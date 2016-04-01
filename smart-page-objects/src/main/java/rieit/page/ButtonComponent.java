@@ -8,9 +8,9 @@ import rieit.DriverFactory;
 
 public class ButtonComponent extends PageComponentSupport {
 
-		 static By button = By.name("btnK");
+		 static By button ;
 		 
-	public ButtonComponent( List<PageComponent> subComponents) {
+	public ButtonComponent( By locator, List<PageComponent> subComponents) {
 		super(button, subComponents);
 		
 	}
@@ -19,9 +19,13 @@ public class ButtonComponent extends PageComponentSupport {
 	 *  {@link ButtonComponent}{@link #click()} emulates a click operation for a button. It takes a 
 	 *  locator as an argument.
 	 *   
+	 *   @return A self reference.
 	 */
 	
-	public void click() {
-		DriverFactory.getInstance().getDriver().findElement(button);
+	public void click(By locator) {
+	
+		DriverFactory.getInstance().getDriver().findElement(locator).click();
 	}
+
+	
 }

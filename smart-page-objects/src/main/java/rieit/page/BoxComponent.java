@@ -8,9 +8,9 @@ import rieit.DriverFactory;
 
 public class BoxComponent extends PageComponentSupport {
 
-		static By box=  By.id("lst-ib");
+		 static By box;
 		
-	public BoxComponent( List<PageComponent> subComponents) {
+	public BoxComponent( By locator, List<PageComponent> subComponents) {
 		super(box, subComponents);	
 	
 	}
@@ -20,9 +20,9 @@ public class BoxComponent extends PageComponentSupport {
 	 * @throws InterruptedException 
 	 * 
 	 */
-	public void sendText(String text){
+	public void sendText(By locator, String text){
 		
-		DriverFactory.getInstance().getDriver().findElement(box).sendKeys(text);			
+		DriverFactory.getInstance().getDriver().findElement(locator).sendKeys(text);			
 	}
 
 	

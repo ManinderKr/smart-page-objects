@@ -3,24 +3,28 @@ package rieit.page;
 import java.util.List;
 
 import org.openqa.selenium.By;
-
-import rieit.DriverFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ResultComponent extends PageComponentSupport{
 
-	static By result=  By.id("rso");
+	static By result;
 	
-	public ResultComponent( List<PageComponent> subComponents) {
+	public ResultComponent( By locator, List<PageComponent> subComponents) {
 		super(result, subComponents);
 		
 	}
-		
-	/**
-	 * {@link Result}{@link #showResult()} show the expected results of the text which are entered in search box.
-	 */
 	
-	public void showResult(){
-		DriverFactory.getInstance().getDriver().findElement(result);			
+	/**
+	 * {@link ResultComponent}{@link #listOfResult(By locator)} examine, the locator contained results
+	 *  is present on the page or not.
+	 * 
+	 * @param locator
+	 * 
+	 * @return list of results. 
+	 */
+public void listOfResult(By locator){
+		
+		ExpectedConditions.presenceOfElementLocated(locator);			
 	}
 
 }

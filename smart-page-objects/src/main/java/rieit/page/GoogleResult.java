@@ -3,22 +3,22 @@ package rieit.page;
 import java.util.Iterator;
 import java.util.List;
 
-public class Google extends BasePage {
+public class GoogleResult extends BasePage{
 
-	private List<PageComponent> googlePageComponents;
-			
-	public List<PageComponent> getGooglePageComponents() {
-		return googlePageComponents;
+	private List<PageComponent> googleResultPageComponents;
+	
+	public List<PageComponent> getGoogleResultPageComponents() {
+		return googleResultPageComponents;
 	}
 
-	public Google(String url, List<PageComponent> pageComponents) {
+	public GoogleResult(String url, List<PageComponent> pageComponents0) {
 	super(url);
-	this.googlePageComponents = pageComponents;			
+	this.googleResultPageComponents = pageComponents0;			
 	}
 	    
 	@Override
 	public boolean isReady() {
-		Iterator<PageComponent> componentIterator = googlePageComponents.iterator();
+		Iterator<PageComponent> componentIterator = googleResultPageComponents.iterator();
 		boolean isComponentReady = true;
 
 		while (componentIterator.hasNext()) {
@@ -29,8 +29,8 @@ public class Google extends BasePage {
 				return isComponentReady;
 			}
 		}
-
 		return isComponentReady;
 	}
 
 }
+
