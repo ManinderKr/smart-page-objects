@@ -1,6 +1,6 @@
 package rieit.page;
 
-import java.util.List;
+import java.util.Collections;
 
 import org.openqa.selenium.By;
 
@@ -8,26 +8,16 @@ import rieit.DriverFactory;
 
 public class BoxComponent extends PageComponentSupport {
 
-		 static By box;
-		
-	public BoxComponent( By locator, List<PageComponent> subComponents) {
-		super(box, subComponents);	
-	
+	public BoxComponent(By locator) {
+		super(locator, Collections.<PageComponent>emptyList());
 	}
 
 	/**
-	 * {@link BoxComponent}{@link #sendText(String text)} send text to a text box or search box. 
-	 * @throws InterruptedException 
 	 * 
+	 * @param query
 	 */
-	public void sendText(By locator, String text){
-		
-		DriverFactory.getInstance().getDriver().findElement(locator).sendKeys(text);			
+	public void type(String query) {
+		DriverFactory.getInstance().getDriver().findElement(getLocator()).sendKeys(query);
 	}
 
-	
-	
 }
-
-
-

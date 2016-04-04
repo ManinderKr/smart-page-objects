@@ -1,16 +1,13 @@
 package rieit.page;
 
-import java.util.List;
-
+import java.util.Collections;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ResultComponent extends PageComponentSupport{
-
-	static By result;
 	
-	public ResultComponent( By locator, List<PageComponent> subComponents) {
-		super(result, subComponents);
+	public ResultComponent( By locator) {
+		super(locator, Collections.<PageComponent>emptyList());
 		
 	}
 	
@@ -22,9 +19,10 @@ public class ResultComponent extends PageComponentSupport{
 	 * 
 	 * @return list of results. 
 	 */
-public void listOfResult(By locator){
+public void listOfResult(){
 		
-		ExpectedConditions.presenceOfElementLocated(locator);			
+	ExpectedConditions.presenceOfElementLocated(getLocator());		
+
 	}
 
 }

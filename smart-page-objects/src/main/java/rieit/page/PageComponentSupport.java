@@ -2,9 +2,7 @@ package rieit.page;
 
 import java.util.Iterator;
 import java.util.List;
-
 import org.openqa.selenium.By;
-
 import rieit.DriverFactory;
 
 public abstract class PageComponentSupport implements PageComponent {

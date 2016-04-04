@@ -1,31 +1,25 @@
 package rieit.page;
 
-import java.util.List;
-
+import java.util.Collections;
 import org.openqa.selenium.By;
-
 import rieit.DriverFactory;
 
 public class ButtonComponent extends PageComponentSupport {
 
-		 static By button ;
-		 
-	public ButtonComponent( By locator, List<PageComponent> subComponents) {
-		super(button, subComponents);
-		
+	public ButtonComponent(By locator) {
+		super(locator, Collections.<PageComponent>emptyList());
+
 	}
 
 	/**
-	 *  {@link ButtonComponent}{@link #click()} emulates a click operation for a button. It takes a 
-	 *  locator as an argument.
-	 *   
-	 *   @return A self reference.
+	 * {@link ButtonComponent}{@link #click()} emulates a click operation for a
+	 * button. It takes a locator as an argument.
+	 * 
+	 * @return A self reference.
 	 */
 	
-	public void click(By locator) {
-	
-		DriverFactory.getInstance().getDriver().findElement(locator).click();
+	public void click() {
+		DriverFactory.getInstance().getDriver().findElement(getLocator()).click();
 	}
 
-	
 }
