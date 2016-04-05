@@ -16,22 +16,6 @@ public class GoogleResult extends BasePage{
 	this.googleResultPageComponents = pageComponents0;			
 	}
 	
-
-	/**
-	 * {@link Google}{@link #clickToSubmitResultPageSearchQuery()} able the user to click the result page search button to submit the search criteria.
-	 *  
-	 * @return self reference.
-	 */
-	
-	@SuppressWarnings("unchecked")
-	
-	public GoogleResult clickToSubmitResultPageSearchQuery() {
-		locate(ResultPageButtonComponent.class).click();
-
-		return new GoogleResult("url", Collections.EMPTY_LIST);
-	}
-	
-
 	    
 	/**
 	 * {@link GoogleResult}{@link #result()} shows the result.
@@ -53,7 +37,6 @@ public class GoogleResult extends BasePage{
 		for (Iterator<PageComponent> itr = googleResultPageComponents.iterator(); itr.hasNext();) {
 			PageComponent pageComponent = (PageComponent) itr.next();
 			if (pageComponentClass.isInstance(pageComponent)) {
-				// XXX: Review!! Do we need this cast?
 				return (PC) pageComponent;
 			}
 		}

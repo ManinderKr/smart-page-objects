@@ -35,6 +35,7 @@ public class Google extends BasePage {
 	}
 
 
+
 	@SuppressWarnings("unchecked")
 
 	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
@@ -67,4 +68,5 @@ public class Google extends BasePage {
 		return isComponentReady;
 	}
 
+	
 }

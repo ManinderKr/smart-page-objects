@@ -69,7 +69,7 @@ public class GoogleTest {
 		Google googlePage = new Google(Url, googleHomePageComponents);
 
 		googlePage.open();
-
+		
 		googlePage.click();
 		
 		CharSequence testUrl = Url;           // checks the Url accepted by the driver should contains the Url passed by the user.
@@ -87,7 +87,7 @@ public class GoogleTest {
 
 		googlePage.submitSearchQuery("Hello Java World!");
 		
-		assertEquals(true, googlePage.submitSearchQuery("Hello Java World!").isReady());
+		assertEquals(true, googlePage.submitSearchQuery("").isReady());
 
 	}
 

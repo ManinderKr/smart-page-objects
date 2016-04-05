@@ -19,10 +19,11 @@ public class ResultComponent extends PageComponentSupport{
 	 * 
 	 * @return list of results. 
 	 */
+	/*
 public void listOfResult(){
 		
-	ExpectedConditions.presenceOfElementLocated(getLocator());		
-
+	ExpectedConditions.presenceOfElementLocated(getLocator());
+	
 	}
-
+*/
 }
