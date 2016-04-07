@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import junit.framework.Assert;
 import rieit.page.Google;
 import rieit.page.GoogleResult;
 import rieit.page.ButtonComponent;
@@ -15,8 +14,6 @@ import rieit.page.ResultComponent;
 import rieit.page.BoxComponent;
 import org.junit.After;
 import org.junit.Before;
-
-@SuppressWarnings("deprecation")
 
 public class GoogleTest {
 
@@ -32,10 +29,10 @@ public class GoogleTest {
 	@Before
 	public void beforeTest() {
 
-		googleHomePageComponents.add(new BoxComponent(By.id("lst-ib")));
-
+		googleHomePageComponents.add(new BoxComponent(By.name("q")));
+	
 		googleHomePageComponents.add(new ButtonComponent(By.name("btnG")));
-		
+	
 		googleSearchResultPageComponents.add(new ResultComponent(By.id("rso")));
 
 	}
@@ -48,7 +45,8 @@ public class GoogleTest {
 
 		CharSequence testUrl = Url;
 		boolean flag = googlePage.getUrl().contains(testUrl);
-		Assert.assertTrue(flag);
+		
+		assertEquals(true, flag);
 
 	}
 
@@ -63,23 +61,9 @@ public class GoogleTest {
 
 	}
 
+	
 	@Test
-	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
-
-		Google googlePage = new Google(Url, googleHomePageComponents);
-
-		googlePage.open();
-		
-		googlePage.click();
-		
-		CharSequence testUrl = Url;           // checks the Url accepted by the driver should contains the Url passed by the user.
-		boolean flag = googlePage.getUrl().contains(testUrl);
-		Assert.assertTrue(flag);
-
-	}
-
-	//@Test
-	public void should_Be_Able_To_Enter_Text() {
+	public void should_Be_Able_To_Enter_Text_In_BoxComponent() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
 		
@@ -87,24 +71,51 @@ public class GoogleTest {
 
 		googlePage.submitSearchQuery("Hello Java World!");
 		
-		assertEquals(true, googlePage.submitSearchQuery("").isReady());
+		assertEquals(true, googlePage.boxComponent().isReady());
 
 	}
+	
 
 	//@Test
 	public void should_Be_Able_To_Navigate_To_Result_Page_After_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
-		GoogleResult googleResult = new GoogleResult(Url, googleSearchResultPageComponents);
-
+		GoogleResult googleResult= new GoogleResult(Url, googleSearchResultPageComponents);
+	
 		googlePage.open();
 
 		googlePage.submitSearchQuery("Hello Java World!");
 		
-		assertEquals(true, googleResult.result().isReady());
+		googlePage.click();
+		
+		assertEquals(true, googleResult.isReady());
 
 	}
 
+	
+	//@Test
+	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
+
+		Google googlePage = new Google(Url, googleHomePageComponents);
+			
+		googlePage.open();
+			
+		googlePage.submitSearchQuery("Hello Java World!");
+			
+		googlePage.click();
+		
+		googlePage.clearSearchQuery();
+			
+		googlePage.click();
+			
+		CharSequence testUrl = Url;
+		boolean flag = googlePage.getUrl().contains(testUrl);
+		
+		assertEquals(true, flag);
+												
+	}
+		
+		
 	@After
 	public void afterTest() {
 		DriverFactory.getInstance().removeDriver();

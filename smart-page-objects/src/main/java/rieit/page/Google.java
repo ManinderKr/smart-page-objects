@@ -16,6 +16,37 @@ public class Google extends BasePage {
 		super(url);
 		this.googlePageComponents = pageComponents;
 	}
+	
+
+	/**
+	 * {@link Google}{@link #click()} enumlates a click operation for a button..
+	 * 
+	 * @return A self reference.
+	 */
+	
+	@SuppressWarnings("unchecked")
+	
+	public Google click() {
+		locate(ButtonComponent.class).click();
+
+		return new Google("url", Collections.EMPTY_LIST);
+	}
+
+	/**
+	 * {@link Google}{@link #boxComponent()} locate the {@link BoxComponent}.
+	 * 
+	 * 
+	 * @return text
+	 */
+	
+	@SuppressWarnings("unchecked")
+	
+	public GoogleResult boxComponent() {
+		locate(BoxComponent.class);
+
+		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+	}
+	
 
 	/**
 	 * {@link Google}{@link #submitSearchQuery(String)} able the user to enter
@@ -25,16 +56,30 @@ public class Google extends BasePage {
 	 * 
 	 * @return text
 	 */
-	@SuppressWarnings("unchecked")
 
+	@SuppressWarnings("unchecked")
+	
 	public GoogleResult submitSearchQuery(String query) {
 		locate(BoxComponent.class).type(query);
-		locate(ButtonComponent.class).click();
+		//locate(ButtonComponent.class).click();
 
-		return new GoogleResult("url", Collections.EMPTY_LIST);
+		return new GoogleResult("Url",  Collections.EMPTY_LIST);
 	}
-
-
+	
+	/**
+	 * {@link Google}{@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
+	 * 
+	 * @return empty {@link BoxComponent}.
+	 */
+	
+	@SuppressWarnings("unchecked")
+	
+	public GoogleResult clearSearchQuery() {
+		locate(BoxComponent.class).clearQuery();
+		
+		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+	}
+	
 
 	@SuppressWarnings("unchecked")
 
@@ -68,5 +113,6 @@ public class Google extends BasePage {
 		return isComponentReady;
 	}
 
+	
 	
 }

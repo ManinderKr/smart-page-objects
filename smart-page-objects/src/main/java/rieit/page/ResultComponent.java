@@ -2,8 +2,8 @@ package rieit.page;
 
 import java.util.Collections;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Locator(id="rso")
 public class ResultComponent extends PageComponentSupport{
 	
 	public ResultComponent( By locator) {
@@ -11,19 +11,6 @@ public class ResultComponent extends PageComponentSupport{
 		
 	}
 	
-	/**
-	 * {@link ResultComponent}{@link #listOfResult(By locator)} examine, the locator contained results
-	 *  is present on the page or not.
-	 * 
-	 * @param locator
-	 * 
-	 * @return list of results. 
-	 */
-	/*
-public void listOfResult(){
-		
-	ExpectedConditions.presenceOfElementLocated(getLocator());
 	
-	}
-*/
 }
+	
