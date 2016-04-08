@@ -40,6 +40,7 @@ public abstract class PageComponentSupport implements PageComponent {
 		return isComponentEnabled;
 	}
 
+	@Override
 	public boolean isVisible() {
 		Iterator<PageComponent> componentIterator = subComponents.iterator();
 		boolean isComponentVisible = true;

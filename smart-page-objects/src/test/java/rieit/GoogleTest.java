@@ -29,7 +29,7 @@ public class GoogleTest {
 	@Before
 	public void beforeTest() {
 
-		googleHomePageComponents.add(new BoxComponent(By.name("q")));
+		googleHomePageComponents.add(new BoxComponent(By.id("lst-ib")));
 	
 		googleHomePageComponents.add(new ButtonComponent(By.name("btnG")));
 	

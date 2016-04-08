@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import rieit.DriverFactory;
 
 
-//@Locator(id="lst-ib")
+@Locator(id="lst-ib")
 public class BoxComponent extends PageComponentSupport {
 
 	public BoxComponent(By locator) {

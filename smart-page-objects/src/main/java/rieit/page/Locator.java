@@ -2,7 +2,9 @@ package rieit.page;
 
 public @interface Locator {
 
-	String id();
+	String id() default "";
 
+	String name() default "";
+ 
 
 }

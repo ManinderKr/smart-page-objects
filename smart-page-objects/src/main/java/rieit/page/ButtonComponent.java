@@ -4,7 +4,7 @@ import java.util.Collections;
 import org.openqa.selenium.By;
 import rieit.DriverFactory;
 
-//@Locator(name="btnG")
+@Locator(name="btnG")
 public class ButtonComponent extends PageComponentSupport {
 
 	public ButtonComponent(By locator) {

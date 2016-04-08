@@ -19,7 +19,7 @@ public class Google extends BasePage {
 	
 
 	/**
-	 * {@link Google}{@link #click()} enumlates a click operation for a button..
+	 * {@link Google}{@link #click()} enumlates a click operation for a button.
 	 * 
 	 * @return A self reference.
 	 */
