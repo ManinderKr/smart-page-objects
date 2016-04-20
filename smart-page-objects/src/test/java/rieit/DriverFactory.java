@@ -26,15 +26,19 @@ public class DriverFactory
 			
 		}
 	};
+	//static final WebDriver driver = new FirefoxDriver();
 
 	public WebDriver getDriver()      // call this method to get the driver object and launch the browser
 	{
+		
 		return driver.get();
+	
 	}
 
 	public void removeDriver()       // Quits the driver and closes the browser
 	{
 		driver.get().quit();
       	driver.remove();
+		//driver.quit();
 	}
 }

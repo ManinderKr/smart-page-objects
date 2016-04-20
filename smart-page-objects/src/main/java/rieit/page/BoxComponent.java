@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 import rieit.DriverFactory;
 
 
-@Locator(id="lst-ib")
 public class BoxComponent extends PageComponentSupport {
 
 	public BoxComponent(By locator) {
@@ -22,6 +21,7 @@ public class BoxComponent extends PageComponentSupport {
 	 * @return results.
 	 */
 	public void type(String query) {
+		
 		DriverFactory.getInstance().getDriver().findElement(getLocator()).sendKeys(query);
 	}
 

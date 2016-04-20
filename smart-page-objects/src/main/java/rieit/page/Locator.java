@@ -6,5 +6,4 @@ public @interface Locator {
 
 	String name() default "";
  
-
 }

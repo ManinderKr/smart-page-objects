@@ -1,28 +1,18 @@
 package rieit.page;
 
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
-public class Google extends BasePage {
+public class Google1 extends BasePage{
 
-	private List<PageComponent> googlePageComponents;
-
-	public List<PageComponent> getGooglePageComponents() {
-		return googlePageComponents;
-	}
-
-	public Google(String url, List<PageComponent> pageComponents) {
-		super(url);
-		this.googlePageComponents = pageComponents;
-	}
+	PageComponent[] googlepageComponent ; 
 	
-
-	/**
-	 * {@link Google}{@link #click()} enumlates a click operation for a button.
-	 * 
-	 * @return A self reference.
-	 */
+	public Google1(String url ,PageComponent[] googlepageComponent ) {
+		super(url);
+		
+		System.out.println("PageComps:   "+googlepageComponent);
+		//this.googlepageComponent = googlepageComponent;
+		this.googlepageComponent = googlepageComponent.clone();
+	}
 	
 	@SuppressWarnings("unchecked")
 	
@@ -83,33 +73,65 @@ public class Google extends BasePage {
 
 	@SuppressWarnings("unchecked")
 
-	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
-		for (Iterator<PageComponent> itr = googlePageComponents.iterator(); itr.hasNext();) {
-			PageComponent pageComponent = (PageComponent) itr.next();
-			if (pageComponentClass.isInstance(pageComponent)) {
-				// XXX: Review!! Do we need this cast?
-				return (PC) pageComponent;
-			}
-		}
-		throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
-						pageComponentClass.getName(), getClass().getName()));
-	}
 
+	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
+		System.out.println("PAGE COMPONENT  : "+ googlepageComponent[0]);
+		
+		PageComponent pageComponent =  googlepageComponent[0];
+		PageComponent pc = googlepageComponent[0];
+		
+		int counter = 0;
+		
+		for (int i =0;i<  googlepageComponent.length; i++) {
+			 pageComponent =  googlepageComponent[i];
+		
+			 System.out.println("PAGE COMPONENT inside loop : "+ googlepageComponent[i]);
+			
+			 if (pageComponentClass.isInstance(pageComponent)) {
+				// XXX: Review!! Do we need this cast?
+				
+				counter=1;
+			    pc = pageComponent;
+				System.out.println("counter : "+counter);
+			}
+		
+		}
+		if(counter != 1){
+			throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
+					pageComponentClass.getName(), getClass().getName()));	
+		}
+		return  (PC) pc;
+	}
+	
+	
 	@Override
 	public boolean isReady() {
-		Iterator<PageComponent> componentIterator = googlePageComponents.iterator();
-		boolean isComponentReady = true;
-
-		while (componentIterator.hasNext()) {
-			PageComponent component = (PageComponent) componentIterator.next();
-			isComponentReady = component.isEnabled() && component.isVisible();
-
+	
+		boolean isComponentReady= true;
+		
+		for( int i = 0; i <  googlepageComponent.length - 1; i++)
+		{
+			PageComponent pageComponent =  googlepageComponent[i];
+			
+			if(pageComponent != null)
+			{
+				isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();
+			}
+			
 			if (!isComponentReady) {
 				return isComponentReady;
 			}
+			
 		}
-
 		return isComponentReady;
-	}
+	}	
+}		
+		
 
-}
+	
+		
+		
+		
+		
+		
+		
