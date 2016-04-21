@@ -7,6 +7,7 @@ import rieit.DriverFactory;
 public class ButtonComponent extends PageComponentSupport {
 
 	public ButtonComponent(By locator) {
+		
 		super(locator, Collections.<PageComponent>emptyList());
 
 	}

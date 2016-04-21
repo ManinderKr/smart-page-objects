@@ -10,7 +10,7 @@ public class Google1 extends BasePage{
 		super(url);
 		
 		System.out.println("PageComps:   "+googlepageComponent);
-		//this.googlepageComponent = googlepageComponent;
+
 		this.googlepageComponent = googlepageComponent.clone();
 	}
 	
