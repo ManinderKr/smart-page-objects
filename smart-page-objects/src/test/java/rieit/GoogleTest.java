@@ -2,15 +2,17 @@ package rieit;
 
 import static org.junit.Assert.*;
 
-import java.lang.annotation.Annotation;
+//import java.lang.annotation.Annotation;
 //import java.util.ArrayList;
 //import java.util.Collections;
 //import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
+
 import rieit.page.Google1;
 import rieit.page.GoogleResult1;
 import rieit.page.Locator;
+import rieit.page.LocatorHandler;
 import rieit.page.ButtonComponent;
 import rieit.page.PageComponent;
 import rieit.page.ResultComponent;
@@ -21,25 +23,42 @@ import org.junit.After;
 public class GoogleTest<buttonComponent> {
 
 	String Url = "https://www.google.co.in";
-
-	@SuppressWarnings("rawtypes")
+public GoogleTest() {
+	call();
+}
+	   
+	/*@SuppressWarnings("rawtypes")
 	Class<GoogleTest> obj = GoogleTest.class;
 
 	Annotation annotation = obj.getAnnotation(Locator.class);
 	Locator locator = (Locator) annotation;
-
+*/
 	@Locator(id = "lst-ib")
 	String id;
-	PageComponent BoxComponent = new BoxComponent(By.id(id));
+	PageComponent BoxComponent ;    //= new BoxComponent(By.id(id.call()));
 
 	@Locator(name = "btnG")
 	String name;
-	PageComponent ButtonComponent = new ButtonComponent(By.name(name));
+	PageComponent ButtonComponent ;    //= new ButtonComponent(By.name(name));
 
 	@Locator(id = "rso")
 	String id1 ;
-	PageComponent ResultComponent = new ResultComponent(By.id(id1));
+	PageComponent ResultComponent ;//= new ResultComponent(By.id(id1));
 
+
+	   public void call(){
+	        LocatorHandler.inject(this);
+	      System.out.println(id);
+	      System.out.println(id1);
+	      System.out.println(name);
+	      
+	       ButtonComponent= new ButtonComponent(By.name(name));
+	       BoxComponent= new BoxComponent(By.id(id));
+	       ResultComponent = new ResultComponent(By.id(id1));
+	    }
+	    
+ 
+    
 	PageComponent[] googleHomePageComponents = { BoxComponent, ButtonComponent };
 	PageComponent[] googleSearchResultPageComponents = { ResultComponent };
 
