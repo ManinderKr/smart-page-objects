@@ -1,27 +1,31 @@
 package rieit.page;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
 
 public class Google1 extends BasePage{
 
-	PageComponent[] googlepageComponent ; 
+	@Locator(id="lst-ib")
+	private BoxComponent searchBoxComponent ; 
 	
-	public Google1(String url ,PageComponent[] googlepageComponent ) {
+	@Locator(name="btnG")
+	private ButtonComponent searchButtonComponent ;
+	/*
+	  public void call()
+  		{
+	   		LocatorAnnoationProcessor.inject(this);
+	   		this.searchBoxComponent= new BoxComponent(By.id(searchBoxComponent.getLocator()));
+	   		System.out.println("searchBoxComponent : "+ searchBoxComponent.toString());
+	   		this.searchButtonComponent= new ButtonComponent(By.name(searchButtonComponent));
+  		}
+*/
+	public Google1(String url ) {
 		super(url);
-		
-		System.out.println("PageComps:   "+googlepageComponent);
-
-		this.googlepageComponent = googlepageComponent.clone();
+//		call();
 	}
 	
-	@SuppressWarnings("unchecked")
-	
-	public Google click() {
-		locate(ButtonComponent.class).click();
-
-		return new Google("url", Collections.EMPTY_LIST);
-	}
-
 	/**
 	 * {@link Google}{@link #boxComponent()} locate the {@link BoxComponent}.
 	 * 
@@ -29,31 +33,30 @@ public class Google1 extends BasePage{
 	 * @return text
 	 */
 	
-	@SuppressWarnings("unchecked")
-	
-	public GoogleResult boxComponent() {
-		locate(BoxComponent.class);
-
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+	public GoogleResult1 boxComponent() {
+		locate(BoxComponent.class);			
+		return new GoogleResult1("http://www.google.com/");
 	}
-	
-
+		
+		
 	/**
 	 * {@link Google}{@link #submitSearchQuery(String)} able the user to enter
 	 * the text or query.
-	 * 
+	 * 	
 	 * @param query
 	 * 
-	 * @return text
+	 * @return text	
 	 */
 
 	@SuppressWarnings("unchecked")
 	
-	public GoogleResult submitSearchQuery(String query) {
+	public <P extends BasePage> P submitSearchQuery(String query) {
 		locate(BoxComponent.class).type(query);
-		//locate(ButtonComponent.class).click();
+		locate(ButtonComponent.class).click();
+		if (query.trim().equals(""))
+			return (P) new Google1("http://www.google.com/");
 
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+		return (P) new GoogleResult1("http://www.google.com/");
 	}
 	
 	/**
@@ -62,67 +65,72 @@ public class Google1 extends BasePage{
 	 * @return empty {@link BoxComponent}.
 	 */
 	
-	@SuppressWarnings("unchecked")
 	
-	public GoogleResult clearSearchQuery() {
+	
+	public GoogleResult1 clearSearchQuery() {
 		locate(BoxComponent.class).clearQuery();
 		
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+		return new GoogleResult1("http://www.google.com/");
 	}
 	
 
-	@SuppressWarnings("unchecked")
+		@SuppressWarnings("unchecked")
 
 
 	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
-		System.out.println("PAGE COMPONENT  : "+ googlepageComponent[0]);
-		
-		PageComponent pageComponent =  googlepageComponent[0];
-		PageComponent pc = googlepageComponent[0];
-		
-		int counter = 0;
-		
-		for (int i =0;i<  googlepageComponent.length; i++) {
-			 pageComponent =  googlepageComponent[i];
-		
-			 System.out.println("PAGE COMPONENT inside loop : "+ googlepageComponent[i]);
+		System.out.printf("pageComponent= "+searchBoxComponent , searchButtonComponent);
+			 
+		/*List<PageComponent> list = new ArrayList<>();
+			  list.add(searchBoxComponent);
+			  list.add(searchButtonComponent);*/
 			
-			 if (pageComponentClass.isInstance(pageComponent)) {
-				// XXX: Review!! Do we need this cast?
-				
-				counter=1;
-			    pc = pageComponent;
-				System.out.println("counter : "+counter);
-			}
-		
-		}
-		if(counter != 1){
-			throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
-					pageComponentClass.getName(), getClass().getName()));	
-		}
-		return  (PC) pc;
-	}
+			ButtonComponent pc1 = searchButtonComponent ;
+			BoxComponent pc=searchBoxComponent ; 
+			
+		int counter = 0;
 	
+			 if (pageComponentClass.isInstance(searchBoxComponent)) {
+				 		counter=1;
+				 		return (PC)pc;
+				 				
+					}
+			 else if(pageComponentClass.isInstance(searchButtonComponent)){
+				 		counter=1;
+				 		return (PC) pc1;
+			 }
+				
+			if(counter != 1){
+						throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
+						pageComponentClass.getName(), getClass().getName()));	
+					}
+			
+			return (PC) list;
+			
+		}
+	
+		
 	
 	@Override
 	public boolean isReady() {
 	
+		
+		ButtonComponent pc1 = searchButtonComponent ;
+		BoxComponent pc=searchBoxComponent ; 
+		
 		boolean isComponentReady= true;
 		
-		for( int i = 0; i <  googlepageComponent.length - 1; i++)
-		{
-			PageComponent pageComponent =  googlepageComponent[i];
+				if(pc != null)
+					{
+						isComponentReady = pc.isEnabled() && pc.isVisible();
+					}
+				else if(pc1 !=null){
+						isComponentReady= pc1.isEnabled() && pc1.isVisible();
+					}
 			
-			if(pageComponent != null)
-			{
-				isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();
-			}
-			
-			if (!isComponentReady) {
-				return isComponentReady;
-			}
-			
-		}
+				if (!isComponentReady) {
+						return isComponentReady;
+					}
+				
 		return isComponentReady;
 	}	
 }		

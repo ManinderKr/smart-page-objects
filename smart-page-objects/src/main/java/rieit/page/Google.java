@@ -29,7 +29,7 @@ public class Google extends BasePage {
 	public Google click() {
 		locate(ButtonComponent.class).click();
 
-		return new Google("url", Collections.EMPTY_LIST);
+		return new Google("http://www.google.com/", Collections.EMPTY_LIST);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Google extends BasePage {
 	public GoogleResult boxComponent() {
 		locate(BoxComponent.class);
 
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+		return new GoogleResult("http://www.google.com/",  Collections.EMPTY_LIST);
 	}
 	
 
@@ -61,9 +61,11 @@ public class Google extends BasePage {
 	
 	public GoogleResult submitSearchQuery(String query) {
 		locate(BoxComponent.class).type(query);
-		//locate(ButtonComponent.class).click();
-
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+		
+		if (query.trim().equals(""))
+			return new GoogleResult("http://www.google.com/",Collections.EMPTY_LIST);
+		
+		return new GoogleResult("http://www.google.com/",  Collections.EMPTY_LIST);
 	}
 	
 	/**
@@ -77,7 +79,7 @@ public class Google extends BasePage {
 	public GoogleResult clearSearchQuery() {
 		locate(BoxComponent.class).clearQuery();
 		
-		return new GoogleResult("Url",  Collections.EMPTY_LIST);
+		return new GoogleResult("http://www.google.com/",  Collections.EMPTY_LIST);
 	}
 	
 

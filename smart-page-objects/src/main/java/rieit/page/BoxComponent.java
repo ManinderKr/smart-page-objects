@@ -12,7 +12,7 @@ public class BoxComponent extends PageComponentSupport {
 	public BoxComponent(By locator) {
 		
 		super(locator, Collections.<PageComponent>emptyList());
-		System.out.println("Locator "+locator);
+		
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class BoxComponent extends PageComponentSupport {
 	 * @return results.
 	 */
 	public void type(String query) {
-		System.out.println("Locator "+getLocator());
+	
 		DriverFactory.getInstance().getDriver().findElement(getLocator()).sendKeys(query);
 	}
 
