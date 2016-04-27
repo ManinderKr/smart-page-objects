@@ -11,7 +11,7 @@ import org.junit.After;
 
 		String Url = "https://www.google.co.in";
 
-		 //@Test
+		//@Test
 		public void should_Return_Url() {
 			Google1 googlePage = new Google1(Url);
 
@@ -27,7 +27,7 @@ import org.junit.After;
 		//@Test
 		public void should_Return_Page_Is_Ready() {
 
-			Google1 googlePage = new Google1(Url);
+			Google1 googlePage = new Google1( Url);
 
 			googlePage.open();
 
@@ -35,10 +35,10 @@ import org.junit.After;
 
 		}
 
-		//@Test
+		@Test
 		public void should_Be_Able_To_Enter_Text_In_BoxComponent() {
 
-			Google1 googlePage = new Google1(Url);
+			Google1 googlePage = new Google1( Url);
 
 			googlePage.open();
 		
@@ -48,7 +48,7 @@ import org.junit.After;
 
 		}
 
-		@Test
+		//@Test
 		public void should_Be_Able_To_Navigate_To_Result_Page_After_Entering_The_Search_Criteria() {
 
 			Google1 googlePage = new Google1(Url);
