@@ -2,31 +2,35 @@ package rieit.page;
 
 public class GoogleResult1 extends BasePage{
 
-	@Locator(id = "rso")
-	private PageComponent ResultComponent ;
+	@Locator(id = "rcnt")
+	private ResultComponent ResultComponent ;
 	
+	public void call(){
+		
+	   	LocatorAnnoationProcessor.inject(this);
+  	}
+
     public GoogleResult1(String url) {
     	super(url);
+    	call();
 	}
 
 	@Override
 	public boolean isReady() {
 	
 		boolean isComponentReady= true;
-		
 	
-			PageComponent pageComponent = ResultComponent;
+			PageComponent rs = ResultComponent;
 			
-			if(pageComponent != null)
-			{
-				isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();
-			}
+			if(rs != null)
+				{
+					isComponentReady = rs.isEnabled() && rs.isVisible();
+				}
 			
 			if (!isComponentReady) {
-				return isComponentReady;
-			}
-			
-		
+					return isComponentReady;
+				}
+
 		return isComponentReady;
 	}	
 	

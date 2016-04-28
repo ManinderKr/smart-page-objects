@@ -61,6 +61,7 @@ public class Google extends BasePage {
 	
 	public GoogleResult submitSearchQuery(String query) {
 		locate(BoxComponent.class).type(query);
+		locate(ButtonComponent.class).click();
 		
 		if (query.trim().equals(""))
 			return new GoogleResult("http://www.google.com/",Collections.EMPTY_LIST);

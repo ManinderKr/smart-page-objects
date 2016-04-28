@@ -1,6 +1,6 @@
 package rieit.page;
 
-//import java.lang.reflect.Constructor;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import org.openqa.selenium.By;
 
@@ -14,19 +14,13 @@ public class LocatorAnnoationProcessor {
 				field.setAccessible(true); // should work on private fields
 				try {
 					if (isIdBasedLocator(locator)) {
-						Class<? extends Object> class1 = instance.getClass();
-						class1.getClass();
-						BoxComponent bx=new BoxComponent(By.id(locator.id()));
-//						Constructor<? extends Object> constructor = instance.getClass().getConstructor(By.class);
-//						Object pageComponent = constructor.newInstance(By.id(locator.id()));
-						field.set(instance, bx);
+						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
+						Object pageComponent = constructor.newInstance(By.id(locator.id()));
+						field.set(instance, pageComponent);
 					} else if (isNameBasedLocator(locator)){
-						Class<? extends Object> class1 = instance.getClass();
-						class1.getClass();
-						ButtonComponent bn=new ButtonComponent(By.name(locator.name()));
-//						Constructor<? extends Object> constructor = instance.getClass().getConstructor(By.class);
-//						Object pageComponent = constructor.newInstance(By.name(locator.name()));
-						field.set(instance, bn);
+						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
+						Object pageComponent = constructor.newInstance(By.name(locator.name()));
+						field.set(instance, pageComponent);
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
@@ -42,5 +36,4 @@ public class LocatorAnnoationProcessor {
 	private static boolean isIdBasedLocator(Locator locator) {
 		return locator.id() != null && !locator.id().isEmpty();
 	}
-
 }

@@ -19,32 +19,32 @@ public class GoogleTest<buttonComponent> {
 
 	String Url = "https://www.google.co.in";
 	
-	  List<PageComponent> googleHomePageComponents = new
-	  ArrayList<PageComponent>(); // googlePageComponents
+	  List<PageComponent> googleHomePageComponents = new ArrayList<PageComponent>(); // googlePageComponents
 	  
-	  List<PageComponent> googleSearchResultPageComponents = new
-	  ArrayList<PageComponent>(); // googleResultPageComponents
+	  List<PageComponent> googleSearchResultPageComponents = new ArrayList<PageComponent>(); // googleResultPageComponents
 	  
-	  @SuppressWarnings("unchecked") List<PageComponent> emptyComponents =
-	  Collections.EMPTY_LIST;
+	  @SuppressWarnings("unchecked") 
+	  List<PageComponent> emptyComponents =Collections.EMPTY_LIST;
 	  
 	  @Before public void beforeTest() {
+		  
+		  googleHomePageComponents.add(new BoxComponent(By.id("lst-ib")));
 	  
-	  googleHomePageComponents.add(new BoxComponent(By.id("lst-ib")));
+		  googleHomePageComponents.add(new ButtonComponent(By.name("btnG")));
 	  
-	  googleHomePageComponents.add(new ButtonComponent(By.name("btnG")));
-	  
-	  googleSearchResultPageComponents.add(new ResultComponent(By.id("rso")));
+		  googleSearchResultPageComponents.add(new ResultComponent(By.id("rso")));
 	  
 	  }
 	 
 	 //@Test
 	public void should_Return_Url() {
+		
 		Google googlePage = new Google(Url, googleHomePageComponents);
 
 		googlePage.open(); // should able to open the correct Url.
 
 		CharSequence testUrl = Url;
+		
 		boolean flag = googlePage.getUrl().contains(testUrl);
 
 		assertEquals(true, flag);
@@ -75,23 +75,22 @@ public class GoogleTest<buttonComponent> {
 
 	}
 
-	@Test
+	//@Test
 	public void should_Be_Able_To_Navigate_To_Result_Page_After_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
+		
 		GoogleResult googleResult = new GoogleResult(Url, googleSearchResultPageComponents);
 
 		googlePage.open();
 
 		googlePage.submitSearchQuery("Hello Java World!");
 
-		googlePage.click();
-
 		assertEquals(true, googleResult.isReady());
 
 	}
 
-	//@Test
+	@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
@@ -100,13 +99,12 @@ public class GoogleTest<buttonComponent> {
 
 		googlePage.submitSearchQuery("Hello Java World!");
 
-		googlePage.click();
-
 		googlePage.clearSearchQuery();
 
-		googlePage.click();
-
+		googlePage.submitSearchQuery("");
+		
 		CharSequence testUrl = Url;
+		
 		boolean flag = googlePage.getUrl().contains(testUrl);
 
 		assertEquals(true, flag);
@@ -115,6 +113,7 @@ public class GoogleTest<buttonComponent> {
 
 	@After
 	public void afterTest() {
+		
 		DriverFactory.getInstance().removeDriver();
 	}
 }

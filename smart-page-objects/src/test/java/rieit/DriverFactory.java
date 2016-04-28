@@ -16,17 +16,19 @@ public class DriverFactory
 	{
 		return instance;
 	}
-
+	
+	
 	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>()   // thread local driver object for WebDriver.
 	{
+		
 		@Override
 		protected WebDriver initialValue()
 		{
+//			String browserName = (browser == null || browser == "") ?  "Firefox" : browser;
 			return new FirefoxDriver();    // can be replaced with other browser drivers
 			
 		}
 	};
-	//static final WebDriver driver = new FirefoxDriver();
 
 	public WebDriver getDriver()      // call this method to get the driver object and launch the browser
 	{
@@ -42,3 +44,4 @@ public class DriverFactory
 		//driver.quit();
 	}
 }
+
