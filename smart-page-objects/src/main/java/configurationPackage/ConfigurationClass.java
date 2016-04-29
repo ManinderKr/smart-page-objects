@@ -9,38 +9,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class ConfigurationClass {
 
 	private static WebDriver driver;
 
 	protected static Properties prop=null;
-	protected static InputStream input= ConfigurationClass.class.getClassLoader().getResourceAsStream("configurationPackage/config.properties");
+	protected static InputStream input= ConfigurationClass.class.getClassLoader().getResourceAsStream("config.property");
 	
-	public static WebDriver openBrowser(String browser) throws IOException {
-		
+	public static  WebDriver openBrowser() {
+	
+		try {
 		prop=new Properties();
 		prop.load(input);
 
-		Dimension d = new Dimension(420,600);
-		driver.manage().window().setSize(d);
-		prop.getProperty("browser");
-		
-		try {
+		String browser=prop.getProperty("browser");
+
+		Dimension d = new Dimension(900,900);
+			
 			if (browser.equalsIgnoreCase("Firefox")) {
 				driver = new FirefoxDriver();
 			} else if (browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
-						"D:/chromedriver.exe");
+						"/home/administrator/Downloads/chromedriver");
 				driver = new ChromeDriver();
-			} else if (browser.equalsIgnoreCase("IE")) {
+			} /*else if (browser.equalsIgnoreCase("IE")) {
 				System.setProperty("webdriver.ie.driver",
-						"D:/IEDriverServer.exe");
+						"/home/administrator/Downloads/selenium-2.41.0/selenium-server-2.41.0");
 				driver = new InternetExplorerDriver();
-			}
+			}*/
+			driver.manage().window().setSize(d);
 		
 		} catch (WebDriverException e) {
+			System.out.println(e.getMessage());
+		}catch(IOException e){
 			System.out.println(e.getMessage());
 		}
 		return driver;

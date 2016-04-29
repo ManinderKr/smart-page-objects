@@ -1,7 +1,7 @@
 package rieit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import configurationPackage.ConfigurationClass;
 
 public class DriverFactory
 {
@@ -21,12 +21,11 @@ public class DriverFactory
 	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>()   // thread local driver object for WebDriver.
 	{
 		
+
 		@Override
 		protected WebDriver initialValue()
 		{
-//			String browserName = (browser == null || browser == "") ?  "Firefox" : browser;
-			return new FirefoxDriver();    // can be replaced with other browser drivers
-			
+			return ConfigurationClass.openBrowser();
 		}
 	};
 

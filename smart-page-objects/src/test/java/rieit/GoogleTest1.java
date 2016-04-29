@@ -10,7 +10,7 @@ public class GoogleTest1{
 
 	String Url = "https://www.google.co.in";
 
-	//@Test
+	@Test
 	public void should_Return_Url() {
 		
 		Google1 googlePage = new Google1(Url);
@@ -64,7 +64,7 @@ public class GoogleTest1{
 			
 	}
 
-	@Test
+	//@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
 
 		Google1 googlePage = new Google1(Url);
