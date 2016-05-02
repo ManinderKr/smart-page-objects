@@ -17,6 +17,13 @@ public class ConfigurationClass {
 	protected static Properties prop=null;
 	protected static InputStream input= ConfigurationClass.class.getClassLoader().getResourceAsStream("config.property");
 	
+	/**
+	 * {@link ConfigurationClass}{@link openBrowser()}accepts a browser which is passed by the user and checks 
+	 * which browser it is whether Firefox or chrome.
+	 * 
+	 * @return browser.
+	 *        
+	 */
 	public static  WebDriver openBrowser() {
 	
 		try {

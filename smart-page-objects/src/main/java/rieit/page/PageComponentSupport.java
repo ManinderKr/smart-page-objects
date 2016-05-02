@@ -17,12 +17,10 @@ public abstract class PageComponentSupport implements PageComponent {
 		this.subComponents = subComponents;
 	}
 
-	@Override
 	public By getLocator() {
 		return this.locator;
 	}
-
-	@Override
+	
 	public boolean isEnabled() {
 		Iterator<PageComponent> componentIterator = subComponents.iterator();
 		boolean isComponentEnabled = true;
@@ -40,7 +38,6 @@ public abstract class PageComponentSupport implements PageComponent {
 		return isComponentEnabled;
 	}
 
-	@Override
 	public boolean isVisible() {
 		Iterator<PageComponent> componentIterator = subComponents.iterator();
 		boolean isComponentVisible = true;

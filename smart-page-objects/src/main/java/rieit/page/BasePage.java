@@ -45,7 +45,7 @@ public abstract class BasePage {
 	 */
 	
 	public void open() {
-		
+		System.out.println(url);
 		driver.get(url);
 	}
 

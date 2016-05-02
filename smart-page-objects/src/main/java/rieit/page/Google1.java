@@ -74,7 +74,7 @@ public class Google1 extends BasePage{
 	@SuppressWarnings("unchecked")
 	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
 		
-		List<PageComponent> list = new ArrayList<>();
+		List<PageComponent> list = new ArrayList<PageComponent>();
 			  list.add(searchBoxComponent);
 			  list.add(searchButtonComponent);
 		

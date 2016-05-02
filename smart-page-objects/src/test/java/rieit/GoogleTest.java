@@ -36,7 +36,7 @@ public class GoogleTest<buttonComponent> {
 	  
 	  }
 	 
-	 //@Test
+	//@Test
 	public void should_Return_Url() {
 		
 		Google googlePage = new Google(Url, googleHomePageComponents);
@@ -62,7 +62,7 @@ public class GoogleTest<buttonComponent> {
 
 	}
 
-	@Test
+	//@Test
 	public void should_Be_Able_To_Enter_Text_In_BoxComponent() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
@@ -90,7 +90,7 @@ public class GoogleTest<buttonComponent> {
 
 	}
 
-	//@Test
+	@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);
