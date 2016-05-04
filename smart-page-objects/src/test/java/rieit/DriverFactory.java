@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import configurationPackage.ReadPropertyClass; 
+
+import configurationPackage.ConfigurationClass;
 
 public class DriverFactory
 {
@@ -27,14 +28,14 @@ public class DriverFactory
 		
 		protected WebDriver initialValue()
 		{
-			Dimension d = new Dimension(900,900);
+			Dimension d = new Dimension(1000,1000);
 			
-			ReadPropertyClass readprop= new ReadPropertyClass();
-			String browser = readprop.getBrowser();
+			ConfigurationClass config= new ConfigurationClass();
+			String browser = config.getBrowser();
 			WebDriver webDriver=null;
 			
 			try{
-			if (browser.equalsIgnoreCase("Firefox")) {
+				if (browser.equalsIgnoreCase("Firefox")) {
 				webDriver = new FirefoxDriver();
 			} else if (browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",

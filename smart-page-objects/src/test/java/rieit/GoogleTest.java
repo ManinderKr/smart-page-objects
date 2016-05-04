@@ -6,8 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
-
-import configurationPackage.ReadPropertyClass;
+import configurationPackage.ConfigurationClass;
 import rieit.page.Google;
 import rieit.page.GoogleResult;
 import rieit.page.ButtonComponent;
@@ -18,17 +17,19 @@ import org.junit.After;
 import org.junit.Before;
 
 public class GoogleTest<buttonComponent> {
-	 ReadPropertyClass readprop= new ReadPropertyClass();
-	String Url = readprop.getUrl();
 	
-	  List<PageComponent> googleHomePageComponents = new ArrayList<PageComponent>(); // googlePageComponents
+	 ConfigurationClass config= new ConfigurationClass();
+	 String Url = config.getUrl();
+	
+	 List<PageComponent> googleHomePageComponents = new ArrayList<PageComponent>(); // googlePageComponents
 	  
-	  List<PageComponent> googleSearchResultPageComponents = new ArrayList<PageComponent>(); // googleResultPageComponents
+	 List<PageComponent> googleSearchResultPageComponents = new ArrayList<PageComponent>(); // googleResultPageComponents
 	  
-	  @SuppressWarnings("unchecked") 
-	  List<PageComponent> emptyComponents =Collections.EMPTY_LIST;
+	 @SuppressWarnings("unchecked") 
+	 List<PageComponent> emptyComponents =Collections.EMPTY_LIST;
 	  
-	  @Before public void beforeTest() {
+	 @Before 
+	 public void beforeTest() {
 		  
 		  googleHomePageComponents.add(new BoxComponent(By.id("lst-ib")));
 	  
@@ -38,7 +39,7 @@ public class GoogleTest<buttonComponent> {
 	  
 	  }
 	 
-	//@Test
+	@Test
 	public void should_Return_Url() {
 		
 		Google googlePage = new Google(Url, googleHomePageComponents);
@@ -92,7 +93,7 @@ public class GoogleTest<buttonComponent> {
 
 	}
 
-	@Test
+	//@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);

@@ -2,15 +2,16 @@ package rieit;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import configurationPackage.ReadPropertyClass;
+import configurationPackage.ConfigurationClass;
 import rieit.page.Google1;
 import rieit.page.GoogleResult1;
 import org.junit.After;
 
 public class GoogleTest1{
 
-	ReadPropertyClass readprop= new ReadPropertyClass();
-	String Url = readprop.getUrl();
+	ConfigurationClass config= new ConfigurationClass();
+	String Url = config.getUrl();
+	
 	@Test
 	public void should_Return_Url() {
 		
