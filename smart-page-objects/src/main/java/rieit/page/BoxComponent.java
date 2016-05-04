@@ -1,11 +1,8 @@
 package rieit.page;
 
 import java.util.Collections;
-
 import org.openqa.selenium.By;
-
 import rieit.DriverFactory;
-
 
 public class BoxComponent extends PageComponentSupport {
 

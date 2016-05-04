@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
+
+import configurationPackage.ReadPropertyClass;
 import rieit.page.Google;
 import rieit.page.GoogleResult;
 import rieit.page.ButtonComponent;
@@ -16,8 +18,8 @@ import org.junit.After;
 import org.junit.Before;
 
 public class GoogleTest<buttonComponent> {
-
-	String Url = "https://www.google.co.in";
+	 ReadPropertyClass readprop= new ReadPropertyClass();
+	String Url = readprop.getUrl();
 	
 	  List<PageComponent> googleHomePageComponents = new ArrayList<PageComponent>(); // googlePageComponents
 	  
