@@ -1,4 +1,4 @@
-package rieit;
+package rieit.test;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
@@ -6,13 +6,15 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import configurationPackage.ConfigurationClass;
-import rieit.page.Google;
-import rieit.page.GoogleResult;
-import rieit.page.ButtonComponent;
+
+import rieit.app.BoxComponent;
+import rieit.app.ButtonComponent;
+import rieit.app.Google;
+import rieit.app.GoogleResult;
+import rieit.app.ResultComponent;
+import rieit.config.ConfigurationClass;
 import rieit.page.PageComponent;
-import rieit.page.ResultComponent;
-import rieit.page.BoxComponent;
+
 import org.junit.After;
 import org.junit.Before;
 
@@ -39,7 +41,7 @@ public class GoogleTest<buttonComponent> {
 	  
 	  }
 	 
-	@Test
+	//@Test
 	public void should_Return_Url() {
 		
 		Google googlePage = new Google(Url, googleHomePageComponents);
@@ -93,7 +95,7 @@ public class GoogleTest<buttonComponent> {
 
 	}
 
-	//@Test
+	@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() {
 
 		Google googlePage = new Google(Url, googleHomePageComponents);

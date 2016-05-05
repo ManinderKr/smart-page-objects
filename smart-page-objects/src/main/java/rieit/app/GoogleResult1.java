@@ -1,8 +1,13 @@
-package rieit.page;
+package rieit.app;
+
+import rieit.page.BasePage;
+import rieit.page.WebPageComponent;
+import rieit.page.LocatorAnnoationProcessor;
+import rieit.page.PageComponent;
 
 public class GoogleResult1 extends BasePage{
 
-	@Locator(id = "rcnt")
+	@WebPageComponent(id = "rcnt")
 	private ResultComponent ResultComponent ;
 	
 	public void call(){

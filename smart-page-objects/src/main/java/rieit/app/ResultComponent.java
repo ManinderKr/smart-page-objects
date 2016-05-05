@@ -1,7 +1,10 @@
-package rieit.page;
+package rieit.app;
 
 import java.util.Collections;
 import org.openqa.selenium.By;
+
+import rieit.page.PageComponent;
+import rieit.page.PageComponentSupport;
 
 //@Locator(id="rso")
 public class ResultComponent extends PageComponentSupport{

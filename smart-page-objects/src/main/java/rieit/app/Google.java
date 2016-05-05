@@ -1,12 +1,13 @@
-package rieit.page;
+package rieit.app;
 
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Google extends BasePage {
+import rieit.page.BasePage;
+import rieit.page.PageComponent;
 
-	private List<PageComponent> googlePageComponents;
+public class Google extends BasePage {
 
 	public List<PageComponent> getGooglePageComponents() {
 		return googlePageComponents;

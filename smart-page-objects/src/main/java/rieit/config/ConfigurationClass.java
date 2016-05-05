@@ -1,4 +1,4 @@
-package configurationPackage;
+package rieit.config;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,8 +15,7 @@ public class ConfigurationClass {
 			try {
 				prop.load(input);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 		

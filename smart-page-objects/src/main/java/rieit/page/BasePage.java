@@ -1,16 +1,21 @@
 package rieit.page;
 
-import org.openqa.selenium.WebDriver;
-import rieit.DriverFactory;
+import java.util.List;
 
+import org.openqa.selenium.WebDriver;
+import rieit.test.DriverFactory;
 
 public abstract class BasePage {
 	
 	private WebDriver driver = DriverFactory.getInstance().getDriver();      // This will invoke your WebDriver and launches the browser
 	
-	
-	private String url = "";  
+	private String url = "";
 
+	protected List<PageComponent> googlePageComponents ; 
+
+	public List<PageComponent> getGooglePageComponents() {
+		return googlePageComponents;
+	}
 	/**
 	 * {@link BasePage}{@link #isReady()} returns True only when the page is ready (i.e. components or  
 	 * locators on the page is enabled and visible) for access.

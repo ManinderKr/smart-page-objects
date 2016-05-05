@@ -1,7 +1,10 @@
-package rieit.page;
+package rieit.app;
 
 import java.util.Iterator;
 import java.util.List;
+
+import rieit.page.BasePage;
+import rieit.page.PageComponent;
 
 public class GoogleResult extends BasePage{
 

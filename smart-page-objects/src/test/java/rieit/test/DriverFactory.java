@@ -1,4 +1,4 @@
-package rieit;
+package rieit.test;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import configurationPackage.ConfigurationClass;
+import rieit.config.ConfigurationClass;
 
 public class DriverFactory
 {
