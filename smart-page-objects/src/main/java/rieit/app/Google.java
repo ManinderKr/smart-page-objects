@@ -8,14 +8,14 @@ import rieit.page.BasePage;
 import rieit.page.PageComponent;
 
 public class Google extends BasePage {
-
-	public List<PageComponent> getGooglePageComponents() {
-		return googlePageComponents;
+	
+	public static List<PageComponent> getGooglePageComponents() {
+		return pageComponents;
 	}
 
 	public Google(String url, List<PageComponent> pageComponents) {
 		super(url);
-		this.googlePageComponents = pageComponents;
+		Google.pageComponents = pageComponents;
 	}
 	
 
@@ -60,14 +60,14 @@ public class Google extends BasePage {
 
 	@SuppressWarnings("unchecked")
 	
-	public GoogleResult submitSearchQuery(String query) {
+	public <P extends BasePage> P  submitSearchQuery(String query) {
 		locate(BoxComponent.class).type(query);
 		locate(ButtonComponent.class).click();
 		
 		if (query.trim().equals(""))
-			return new GoogleResult("http://www.google.com/",Collections.EMPTY_LIST);
+			return (P) new GoogleResult("http://www.google.com/",Collections.EMPTY_LIST);
 		
-		return new GoogleResult("http://www.google.com/",  Collections.EMPTY_LIST);
+		return (P) new GoogleResult("http://www.google.com/",  Collections.EMPTY_LIST);
 	}
 	
 	/**
@@ -88,7 +88,7 @@ public class Google extends BasePage {
 	@SuppressWarnings("unchecked")
 
 	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
-		for (Iterator<PageComponent> itr = googlePageComponents.iterator(); itr.hasNext();) {
+		for (Iterator<PageComponent> itr = pageComponents.iterator(); itr.hasNext();) {
 			PageComponent pageComponent = (PageComponent) itr.next();
 			if (pageComponentClass.isInstance(pageComponent)) {
 				// XXX: Review!! Do we need this cast?
@@ -101,7 +101,7 @@ public class Google extends BasePage {
 
 	@Override
 	public boolean isReady() {
-		Iterator<PageComponent> componentIterator = googlePageComponents.iterator();
+		Iterator<PageComponent> componentIterator = pageComponents.iterator();
 		boolean isComponentReady = true;
 
 		while (componentIterator.hasNext()) {

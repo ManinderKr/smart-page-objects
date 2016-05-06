@@ -1,7 +1,6 @@
 package rieit.app;
 
-import java.util.List;
-
+import java.lang.reflect.InvocationTargetException;
 import rieit.page.BasePage;
 import rieit.page.LocatorAnnoationProcessor;
 import rieit.page.PageComponent;
@@ -15,21 +14,12 @@ public class Google1 extends BasePage{
 	@WebPageComponent(name="btnG")
 	private ButtonComponent searchButtonComponent ;   
 	
-	/*public List<PageComponent> getPageComponents() {
-		return googlePageComponents;
-	}*/
-	
-	public void call() throws SecurityException, NoSuchMethodException
+	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException 
   		{
-	   		try {
-				LocatorAnnoationProcessor.inject(this);
-			} catch (NoSuchFieldException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	   		LocatorAnnoationProcessor.inject(this);
   		}
 
-	public Google1(String url) throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+	public Google1(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
 			super(url);
 			call();
 		}
@@ -40,9 +30,16 @@ public class Google1 extends BasePage{
 	 * 
 	 * 
 	 * @return text
+	 * @throws InvocationTargetException 
+	 * @throws IllegalArgumentException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * @throws NoSuchFieldException 
+	 * @throws SecurityException 
+	 * @throws NoSuchMethodException 
 	 */
 	
-	public GoogleResult1 boxComponent() {
+	public GoogleResult1 boxComponent() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException  {
 		locate(BoxComponent.class);			
 		return new GoogleResult1("http://www.google.com/");
 	}
@@ -60,11 +57,13 @@ public class Google1 extends BasePage{
 	 * @throws NoSuchFieldException 
 	 * @throws IllegalAccessException 
 	 * @throws InstantiationException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalArgumentException 
 	 */
 
 	@SuppressWarnings("unchecked")
 	
-	public <P extends BasePage> P submitSearchQuery(String query) throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+	public <P extends BasePage> P submitSearchQuery(String query) throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		locate(BoxComponent.class).type(query);
 		locate(ButtonComponent.class).click();
 				
@@ -79,9 +78,16 @@ public class Google1 extends BasePage{
 	 * {@link Google}{@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
 	 * 
 	 * @return empty {@link BoxComponent}.
+	 * @throws InvocationTargetException 
+	 * @throws IllegalArgumentException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * @throws NoSuchFieldException 
+	 * @throws SecurityException 
+	 * @throws NoSuchMethodException 
 	 */
 	
-	public GoogleResult1 clearSearchQuery() {
+	public GoogleResult1 clearSearchQuery() throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		locate(BoxComponent.class).clearQuery();
 		
 		return new GoogleResult1("http://www.google.com/");
@@ -91,7 +97,7 @@ public class Google1 extends BasePage{
 	@SuppressWarnings("unchecked")
 	private <PC extends PageComponent> PC locate(Class<PC> pageComponentClass) {
 			
-			for(PageComponent pageComponent : googlePageComponents){
+			for(PageComponent pageComponent : pageComponents){
 				if(pageComponentClass.isInstance(pageComponent)){
 					  return (PC) pageComponent;
 				}
@@ -106,7 +112,7 @@ public class Google1 extends BasePage{
 		  
 		  boolean isComponentReady= true;
 		  
-		  for(PageComponent pageComponent : googlePageComponents){
+		  for(PageComponent pageComponent : pageComponents){
 				if(pageComponent != null)
 					{
 						isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();

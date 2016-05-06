@@ -2,32 +2,33 @@ package rieit.page;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.openqa.selenium.By;
 
 public class LocatorAnnoationProcessor {
 
-	
-	public static void inject(Object instance) throws NoSuchMethodException, SecurityException, NoSuchFieldException {
+	@SuppressWarnings("unchecked")
+	public static void inject(final Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
 	
 		// get super class for current Page instance 
 		
 		// get collection which holds all PageComponents
 				
 		// instantiate a new ArrayList of PageComponent
-		
-		 @SuppressWarnings("rawtypes")
-		Class basepage= instance.getClass().getSuperclass();
-			
-			protected List<PageComponent> googlePageComponents = new ArrayList<PageComponent>(); 
-		 
-			basepage.add(fields);
 
-		Field[] fields = instance.getClass().getDeclaredFields();
-	   
+		
+		List<PageComponent>  pageComponents = null; 
+
+		final Field[] fields = instance.getClass().getDeclaredFields();
+	
+		Object basepage=  instance.getClass().getSuperclass();
+			Object listfield= ((Class<? extends Object>) basepage).getDeclaredField("pageComponents").get(basepage);
+			if (listfield instanceof List){
+				pageComponents= (List<PageComponent>) listfield;
+			}
+		
 		for (Field field : fields) {
 			if (field.isAnnotationPresent(WebPageComponent.class)) {
 				WebPageComponent locator = field.getAnnotation(WebPageComponent.class);
@@ -37,29 +38,19 @@ public class LocatorAnnoationProcessor {
 						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
 						Object pageComponent = constructor.newInstance(By.id(locator.id()));
 						field.set(instance, pageComponent);
-						
-						// add this field to ArrayList of Components
+						pageComponents.add((PageComponent) pageComponent);
 						
 					} else if (isNameBasedLocator(locator)){
 						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
 						Object pageComponent = constructor.newInstance(By.name(locator.name()));
 						field.set(instance, pageComponent);
+						pageComponents.add((PageComponent) pageComponent);
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
-	}
-
-	private static void list() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void basepage() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	private static boolean isNameBasedLocator(WebPageComponent locator) {

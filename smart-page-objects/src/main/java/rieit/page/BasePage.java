@@ -1,5 +1,6 @@
 package rieit.page;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
@@ -11,11 +12,9 @@ public abstract class BasePage {
 	
 	private String url = "";
 
-	protected List<PageComponent> googlePageComponents ; 
-
-	public List<PageComponent> getGooglePageComponents() {
-		return googlePageComponents;
-	}
+	protected static List<PageComponent> pageComponents = new ArrayList<PageComponent>(); 
+	
+	
 	/**
 	 * {@link BasePage}{@link #isReady()} returns True only when the page is ready (i.e. components or  
 	 * locators on the page is enabled and visible) for access.
@@ -50,7 +49,7 @@ public abstract class BasePage {
 	 */
 	
 	public void open() {
-		System.out.println(url);
+	
 		driver.get(url);
 	}
 
