@@ -16,7 +16,7 @@ public class ButtonComponent extends PageComponentSupport {
 	}
 
 	/**
-	 * {@link ButtonComponent}{@link #click()} emulates a click operation for a
+	 * {@link ButtonComponent} {@link #click()} emulates a click operation for a
 	 * button. It takes a locator as an argument.
 	 * 
 	 * @return A self reference.

@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.Test;
 import org.openqa.selenium.By;
-
 import rieit.app.BoxComponent;
 import rieit.app.ButtonComponent;
 import rieit.app.Google;
@@ -14,11 +13,10 @@ import rieit.app.GoogleResult;
 import rieit.app.ResultComponent;
 import rieit.config.ConfigurationClass;
 import rieit.page.PageComponent;
-
 import org.junit.After;
 import org.junit.Before;
 
-public class GoogleTest<buttonComponent> {
+public class GoogleTest {
 	
 	 ConfigurationClass config= new ConfigurationClass();
 	 String Url = config.getUrl();
@@ -28,7 +26,7 @@ public class GoogleTest<buttonComponent> {
 	 List<PageComponent> googleSearchResultPageComponents = new ArrayList<PageComponent>(); // googleResultPageComponents
 	  
 	 @SuppressWarnings("unchecked") 
-	 List<PageComponent> emptyComponents =Collections.EMPTY_LIST;
+	 List<PageComponent> emptyComponents = Collections.EMPTY_LIST;
 	  
 	 @Before 
 	 public void beforeTest() {

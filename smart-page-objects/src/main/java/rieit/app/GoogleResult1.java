@@ -26,18 +26,17 @@ public class GoogleResult1 extends BasePage{
 	public boolean isReady() {
 	
 		boolean isComponentReady= true;
-	
-			PageComponent rs = ResultComponent;
+		
+		  for(PageComponent pageComponent : pageComponents){
+				if(pageComponent != null)
+					{
+						isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();
+					}
 			
-			if(rs != null)
-				{
-					isComponentReady = rs.isEnabled() && rs.isVisible();
-				}
-			
-			if (!isComponentReady) {
-					return isComponentReady;
-				}
-
+				if (!isComponentReady) {
+						return isComponentReady;
+					}
+		  }
 		return isComponentReady;
 	}	
 	

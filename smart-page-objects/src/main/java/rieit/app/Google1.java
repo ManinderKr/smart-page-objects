@@ -14,8 +14,8 @@ public class Google1 extends BasePage{
 	@WebPageComponent(name="btnG")
 	private ButtonComponent searchButtonComponent ;   
 	
-	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException 
-  		{
+	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
+  		
 	   		LocatorAnnoationProcessor.inject(this);
   		}
 
@@ -26,10 +26,10 @@ public class Google1 extends BasePage{
 	
 	
 	/**
-	 * {@link Google}{@link #boxComponent()} locate the {@link BoxComponent}.
-	 * 
-	 * 
+	 * {@link Google1} {@link #boxComponent()} locate the {@link BoxComponent}.
+	 *  
 	 * @return text
+	 * 
 	 * @throws InvocationTargetException 
 	 * @throws IllegalArgumentException 
 	 * @throws IllegalAccessException 
@@ -46,12 +46,13 @@ public class Google1 extends BasePage{
 		
 		
 	/**
-	 * {@link Google}{@link #submitSearchQuery(String)} able the user to enter
+	 * {@link Google1} {@link #submitSearchQuery(String)} able the user to enter
 	 * the text or query.
 	 * 	
 	 * @param query
 	 * 
 	 * @return text	
+	 * 
 	 * @throws NoSuchMethodException 
 	 * @throws SecurityException 
 	 * @throws NoSuchFieldException 
@@ -59,10 +60,10 @@ public class Google1 extends BasePage{
 	 * @throws InstantiationException 
 	 * @throws InvocationTargetException 
 	 * @throws IllegalArgumentException 
+	 * @throws ClassNotFoundException 
 	 */
 
 	@SuppressWarnings("unchecked")
-	
 	public <P extends BasePage> P submitSearchQuery(String query) throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		locate(BoxComponent.class).type(query);
 		locate(ButtonComponent.class).click();
@@ -75,9 +76,10 @@ public class Google1 extends BasePage{
 	
 	
 	/**
-	 * {@link Google}{@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
+	 * {@link Google1} {@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
 	 * 
-	 * @return empty {@link BoxComponent}.
+	 * @return empty {@link BoxComponent}
+	 * 
 	 * @throws InvocationTargetException 
 	 * @throws IllegalArgumentException 
 	 * @throws IllegalAccessException 
@@ -99,7 +101,11 @@ public class Google1 extends BasePage{
 			
 			for(PageComponent pageComponent : pageComponents){
 				if(pageComponentClass.isInstance(pageComponent)){
+					
+					System.out.println("pageComponents1*: " + pageComponent);
+					
 					  return (PC) pageComponent;
+					
 				}
 			}
 			throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
@@ -113,6 +119,9 @@ public class Google1 extends BasePage{
 		  boolean isComponentReady= true;
 		  
 		  for(PageComponent pageComponent : pageComponents){
+			  
+			  System.out.println("pageComponents2*: " + pageComponent);
+			  
 				if(pageComponent != null)
 					{
 						isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();

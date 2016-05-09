@@ -20,7 +20,7 @@ public class Google extends BasePage {
 	
 
 	/**
-	 * {@link Google}{@link #click()} enumlates a click operation for a button.
+	 * {@link Google} {@link #click()} enumlates a click operation for a button.
 	 * 
 	 * @return A self reference.
 	 */
@@ -34,7 +34,7 @@ public class Google extends BasePage {
 	}
 
 	/**
-	 * {@link Google}{@link #boxComponent()} locate the {@link BoxComponent}.
+	 * {@link Google} {@link #boxComponent()} locate the {@link BoxComponent}.
 	 * 
 	 * 
 	 * @return text
@@ -50,7 +50,7 @@ public class Google extends BasePage {
 	
 
 	/**
-	 * {@link Google}{@link #submitSearchQuery(String)} able the user to enter
+	 * {@link Google} {@link #submitSearchQuery(String)} able the user to enter
 	 * the text or query.
 	 * 
 	 * @param query
@@ -71,7 +71,7 @@ public class Google extends BasePage {
 	}
 	
 	/**
-	 * {@link Google}{@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
+	 * {@link Google} {@link #clearSearchQuery()} clear the query or text present in {@link BoxComponent}.
 	 * 
 	 * @return empty {@link BoxComponent}.
 	 */

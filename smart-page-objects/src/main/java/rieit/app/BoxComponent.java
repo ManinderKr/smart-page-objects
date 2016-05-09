@@ -16,7 +16,7 @@ public class BoxComponent extends PageComponentSupport {
 	}
 
 	/**
-	 * {@link BoxComponent}{@link #type(String)} able the user to enter the text or query to be searched.
+	 * {@link BoxComponent} {@link #type(String)} able the user to enter the text or query to be searched.
 	 * 
 	 * @param query
 	 * 
@@ -29,7 +29,7 @@ public class BoxComponent extends PageComponentSupport {
 
 
 	/**
-	 * {@link BoxComponent}{@link #clearQuery(String)} clear the query or text present in {@link BoxComponent}.
+	 * {@link BoxComponent} {@link #clearQuery(String)} clear the query or text present in {@link BoxComponent}.
 	 * 
 	 * @return empty {@link BoxComponent}.
 	 */

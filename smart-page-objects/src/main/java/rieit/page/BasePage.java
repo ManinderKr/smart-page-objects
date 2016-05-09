@@ -2,7 +2,6 @@ package rieit.page;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import rieit.test.DriverFactory;
 
@@ -16,9 +15,10 @@ public abstract class BasePage {
 	
 	
 	/**
-	 * {@link BasePage}{@link #isReady()} returns True only when the page is ready (i.e. components or  
+	 * {@link BasePage} {@link #isReady()} returns True only when the page is ready (i.e. components or  
 	 * locators on the page is enabled and visible) for access.
 	 */
+	
 	public abstract boolean isReady();
 	
 	
@@ -36,7 +36,7 @@ public abstract class BasePage {
 	}
 	
 	/**
-	 * {@link BasePage}{@link #getUrl()} accepts the Url provided by user.
+	 * {@link BasePage} {@link #getUrl()} accepts the Url provided by user.
 	 * 
 	 */
 	public String getUrl( ) {		
@@ -44,21 +44,18 @@ public abstract class BasePage {
 	}
 
 	/**
-	 * {@link BasePage}{@link #open()} accepts the Url provided by user and open it.
+	 * {@link BasePage} {@link #open()} accepts the Url provided by user and open it.
 	 * 
 	 */
-	
 	public void open() {
 	
 		driver.get(url);
 	}
 
 	/**
-	 * {@link BasePage}{@link #reload()} refresh the WebPage using the same Url provided by user.
+	 * {@link BasePage} {@link #reload()} refresh the WebPage using the same Url provided by user.
 	 * 
-	 */
-	
-	
+	 */	
 	public void reload() {
 		driver.navigate().refresh();
 		
