@@ -2,7 +2,7 @@ package rieit.app;
 
 import java.lang.reflect.InvocationTargetException;
 import rieit.page.BasePage;
-import rieit.page.LocatorAnnoationProcessor;
+import rieit.page.LocatorAnnotationProcessor;
 import rieit.page.PageComponent;
 import rieit.page.WebPageComponent;
 
@@ -14,12 +14,12 @@ public class Google1 extends BasePage{
 	@WebPageComponent(name="btnG")
 	private ButtonComponent searchButtonComponent ;   
 	
-	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
+	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
   		
-	   		LocatorAnnoationProcessor.inject(this);
+	   		LocatorAnnotationProcessor.inject(this);
   		}
 
-	public Google1(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
+	public Google1(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 			super(url);
 			call();
 		}
@@ -102,10 +102,7 @@ public class Google1 extends BasePage{
 			for(PageComponent pageComponent : pageComponents){
 				if(pageComponentClass.isInstance(pageComponent)){
 					
-					System.out.println("pageComponents1*: " + pageComponent);
-					
-					  return (PC) pageComponent;
-					
+					return (PC) pageComponent;
 				}
 			}
 			throw new RuntimeException(String.format("Unable to find PageComponent specified by class '%s' in Page class '%s'",
@@ -119,9 +116,7 @@ public class Google1 extends BasePage{
 		  boolean isComponentReady= true;
 		  
 		  for(PageComponent pageComponent : pageComponents){
-			  
-			  System.out.println("pageComponents2*: " + pageComponent);
-			  
+		
 				if(pageComponent != null)
 					{
 						isComponentReady = pageComponent.isEnabled() && pageComponent.isVisible();

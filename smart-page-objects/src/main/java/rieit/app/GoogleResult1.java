@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import rieit.page.BasePage;
 import rieit.page.WebPageComponent;
-import rieit.page.LocatorAnnoationProcessor;
+import rieit.page.LocatorAnnotationProcessor;
 import rieit.page.PageComponent;
 
 public class GoogleResult1 extends BasePage{
@@ -14,7 +14,7 @@ public class GoogleResult1 extends BasePage{
 	
 	public void call() throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{
 		
-	   	LocatorAnnoationProcessor.inject(this);
+	   	LocatorAnnotationProcessor.inject(this);
   	}
 
     public GoogleResult1(String url) throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {

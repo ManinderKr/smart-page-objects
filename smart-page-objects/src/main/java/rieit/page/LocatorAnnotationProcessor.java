@@ -5,9 +5,18 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import org.openqa.selenium.By;
 
-public class LocatorAnnoationProcessor {
-
-	public static void inject(final Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException {
+public class LocatorAnnotationProcessor {
+	
+	
+	/**
+	 * {@link LocatorAnnotationProcessor} {@link #inject(Object)} inject the instance of a class and annotation values used in that class
+	 *  and process them.
+	 *  
+	 * @return locator
+	 * 
+	 */
+	
+	public static void inject(final Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 		
 		final Field[] fields = instance.getClass().getDeclaredFields();
 		
@@ -22,17 +31,13 @@ public class LocatorAnnoationProcessor {
 						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
 						Object pageComponent = constructor.newInstance(By.id(locator.id()));
 						field.set(instance, pageComponent);
-						postPageComponent.pageComponents.add((PageComponent) pageComponent);
+						postPageComponent.getPageComponents().add((PageComponent) pageComponent);
 					
-						System.out.println("pageComponents1 : " +((PageComponent)pageComponent));
-						
 					} else if (isNameBasedLocator(locator)){
 						Constructor<? extends Object> constructor = field.getType().getConstructor(By.class);
 						Object pageComponent = constructor.newInstance(By.name(locator.name()));
 						field.set(instance, pageComponent);
-						postPageComponent.pageComponents.add((PageComponent) pageComponent);
-						
-						System.out.println("pageComponents2: " +((PageComponent)pageComponent));
+						postPageComponent.getPageComponents().add((PageComponent) pageComponent);
 						
 					}
 				}catch (Exception e) {
@@ -42,11 +47,29 @@ public class LocatorAnnoationProcessor {
 		}
 	}
 
-	private static boolean isNameBasedLocator(WebPageComponent locator) {
+	
+	/**
+	 * {@link LocatorAnnotationProcessor} {@link #isNameBasedLocator(WebPageComponent)} checks the annotation passed to a 
+	 * pageComponent having name as a locator is not null and not Empty.
+	 *  
+	 * @return locator
+	 * 
+	 */
+	
+	public static boolean isNameBasedLocator(WebPageComponent locator) {
 		return locator.name() != null && !locator.name().isEmpty();
 	}
-
-	private static boolean isIdBasedLocator(WebPageComponent locator) {
+	
+	
+	/**
+	 * {@link LocatorAnnotationProcessor} {@link #isIdBasedLocator(WebPageComponent)} checks the annotation passed to a 
+	 * pageComponent having id as a locator is not null and not Empty.
+	 *  
+	 * @return locator
+	 * 
+	 */
+	
+	public static boolean isIdBasedLocator(WebPageComponent locator) {
 		return locator.id() != null && !locator.id().isEmpty();
 	}
 	
