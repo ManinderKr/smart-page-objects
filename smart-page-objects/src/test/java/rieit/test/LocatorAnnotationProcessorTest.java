@@ -17,7 +17,7 @@ public class LocatorAnnotationProcessorTest {
 	
 	@SuppressWarnings({ "static-access" })
 	@Test
-	public void Should_Be_Able_To_Check_The_Annotation_Value_Is_Passed_To_Another_Class_Or_Not() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException{
+	public void Should_Be_Able_To_Check_The_Annotation_Value_Is_Passed_From_One_Class_To_Another_Class_Or_Not() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException{
 		
 		LocatorAnnotationProcessor locatorAnnotationProcessor = new LocatorAnnotationProcessor();
 		
@@ -47,6 +47,5 @@ public class LocatorAnnotationProcessorTest {
 		
 		DriverFactory.getInstance().removeDriver();
 	}
-	
 	
 }

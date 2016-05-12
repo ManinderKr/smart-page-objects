@@ -9,7 +9,6 @@ import rieit.config.ConfigurationClass;
 
 public class DriverFactory
 {
-
 	private DriverFactory(){
 	   //Do-nothing..
 	}
@@ -24,7 +23,6 @@ public class DriverFactory
 	
 	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>()   // thread local driver object for WebDriver.
 	{
-		
 		protected WebDriver initialValue()
 		{
 			Dimension d = new Dimension(1000,1000);

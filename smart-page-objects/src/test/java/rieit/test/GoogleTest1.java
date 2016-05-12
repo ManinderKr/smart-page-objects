@@ -65,7 +65,7 @@ public class GoogleTest1 {
 
 		googlePage.submitSearchQuery("Hello Java World!");
 
-		assertEquals(true, googleResult.isReady());
+		assertEquals(		true, googleResult.isReady());
 			
 	}
 
