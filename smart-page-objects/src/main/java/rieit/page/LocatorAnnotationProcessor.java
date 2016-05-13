@@ -16,7 +16,7 @@ public class LocatorAnnotationProcessor {
 	 * 
 	 */
 	
-	public static void inject(final Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
+	public static void inject( Object instance) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 		
 		final Field[] fields = instance.getClass().getDeclaredFields();
 		
@@ -56,7 +56,7 @@ public class LocatorAnnotationProcessor {
 	 * 
 	 */
 	
-	public static boolean isNameBasedLocator(WebPageComponent locator) {
+	private static boolean isNameBasedLocator(WebPageComponent locator) {
 		return locator.name() != null && !locator.name().isEmpty();
 	}
 	
@@ -69,7 +69,7 @@ public class LocatorAnnotationProcessor {
 	 * 
 	 */
 	
-	public static boolean isIdBasedLocator(WebPageComponent locator) {
+	private static boolean isIdBasedLocator(WebPageComponent locator) {
 		return locator.id() != null && !locator.id().isEmpty();
 	}
 	

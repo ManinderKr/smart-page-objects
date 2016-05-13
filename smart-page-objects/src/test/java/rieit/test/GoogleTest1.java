@@ -14,7 +14,7 @@ public class GoogleTest1 {
 	ConfigurationClass config= new ConfigurationClass();
 	String Url = config.getUrl();
 	
-	//@Test
+	@Test
 	public void should_Return_Url() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
 		BasePage googlePage = new Google1(Url);
@@ -54,7 +54,7 @@ public class GoogleTest1 {
 			
 	}
 
-	@Test
+	//@Test
 	public void should_Be_Able_To_Navigate_To_Result_Page_After_Entering_The_Search_Criteria() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		Google1 googlePage = new Google1(Url);
@@ -65,7 +65,7 @@ public class GoogleTest1 {
 
 		googlePage.submitSearchQuery("Hello Java World!");
 
-		assertEquals(		true, googleResult.isReady());
+		assertEquals(true, googleResult.isReady());
 			
 	}
 
@@ -89,7 +89,8 @@ public class GoogleTest1 {
 		assertEquals(true, flag);
 	
 	}
-
+	
+	
 	@After
 	public void afterTest() {
 		

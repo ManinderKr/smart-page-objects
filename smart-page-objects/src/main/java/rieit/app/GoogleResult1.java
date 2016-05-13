@@ -1,7 +1,6 @@
 package rieit.app;
 
 import java.lang.reflect.InvocationTargetException;
-
 import rieit.page.BasePage;
 import rieit.page.WebPageComponent;
 import rieit.page.LocatorAnnotationProcessor;

@@ -12,7 +12,7 @@ public class Google1 extends BasePage{
 	private BoxComponent searchBoxComponent ; 
 	
 	@WebPageComponent(name="btnG")
-	private ButtonComponent searchButtonComponent ;   
+	private ButtonComponent searchButtonComponent ;  
 	
 	public void call() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
   		
@@ -43,7 +43,7 @@ public class Google1 extends BasePage{
 		locate(BoxComponent.class);			
 		return new GoogleResult1("http://www.google.com/");
 	}
-		
+	
 		
 	/**
 	 * {@link Google1} {@link #submitSearchQuery(String)} able the user to enter

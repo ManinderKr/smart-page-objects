@@ -15,7 +15,7 @@ public class PostPageComponentInjectionProcessor {
 	 * @return List of PageCOmponents.
 	 */
 	
-	public PostPageComponentInjectionProcessor(final Object instance) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException{
+	public PostPageComponentInjectionProcessor (Object instance) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException{
 		
 		Object basepage=  instance.getClass().getSuperclass();
 		Object listfield= ((Class<? extends Object>) basepage).getDeclaredField("pageComponents").get(basepage);
