@@ -14,7 +14,7 @@ public class GoogleTest1 {
 	ConfigurationClass config= new ConfigurationClass();
 	String Url = config.getUrl();
 	
-	@Test
+	//@Test
 	public void should_Return_Url() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
 		BasePage googlePage = new Google1(Url);
@@ -41,7 +41,7 @@ public class GoogleTest1 {
 	}
 	
 
-	//@Test
+	@Test
 	public void should_Be_Able_To_Enter_Text_In_BoxComponent() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		Google1 googlePage = new Google1( Url);

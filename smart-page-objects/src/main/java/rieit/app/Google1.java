@@ -30,13 +30,15 @@ public class Google1 extends BasePage{
 	 *  
 	 * @return text
 	 * 
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws NoSuchFieldException 
-	 * @throws SecurityException 
-	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException- checked exception that wraps an exception thrown by an invoked method or constructor.
+	 * @throws IllegalArgumentException- indicate that a method has been passed an illegal or inappropriate argument.
+	 * @throws IllegalAccessException- thrown when an application tries to reflectively create an instance (other than an array), set or get a field, or invoke a method, but the currently executing method 
+	 * 									does not have access to the definition of the specified class, field, method or constructor.
+	 * @throws InstantiationException- thrown when an application tries to create an instance of a class using the newInstance method in class Class, but the specified class object cannot be instantiated.  
+	 * @throws NoSuchFieldException- signals that the class doesn't have a field of a specified name.
+	 * @throws SecurityException- thrown by the security manager to indicate a security violation.
+	 * @throws NoSuchMethodException- thrown when a particular method cannot be found.
+
 	 */
 	
 	public GoogleResult1 boxComponent() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException  {
@@ -53,14 +55,15 @@ public class Google1 extends BasePage{
 	 * 
 	 * @return text	
 	 * 
-	 * @throws NoSuchMethodException 
-	 * @throws SecurityException 
-	 * @throws NoSuchFieldException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws ClassNotFoundException 
+	 * @throws InvocationTargetException- checked exception that wraps an exception thrown by an invoked method or constructor.
+	 * @throws IllegalArgumentException- indicate that a method has been passed an illegal or inappropriate argument.
+	 * @throws IllegalAccessException- thrown when an application tries to reflectively create an instance (other than an array), set or get a field, or invoke a method, but the currently executing method 
+	 * 									does not have access to the definition of the specified class, field, method or constructor.
+	 * @throws InstantiationException- thrown when an application tries to create an instance of a class using the newInstance method in class Class, but the specified class object cannot be instantiated.  
+	 * @throws NoSuchFieldException- signals that the class doesn't have a field of a specified name.
+	 * @throws SecurityException- thrown by the security manager to indicate a security violation.
+	 * @throws NoSuchMethodException- thrown when a particular method cannot be found.
+
 	 */
 
 	@SuppressWarnings("unchecked")
@@ -80,13 +83,15 @@ public class Google1 extends BasePage{
 	 * 
 	 * @return empty {@link BoxComponent}
 	 * 
-	 * @throws InvocationTargetException 
-	 * @throws IllegalArgumentException 
-	 * @throws IllegalAccessException 
-	 * @throws InstantiationException 
-	 * @throws NoSuchFieldException 
-	 * @throws SecurityException 
-	 * @throws NoSuchMethodException 
+	 * @throws InvocationTargetException- checked exception that wraps an exception thrown by an invoked method or constructor.
+	 * @throws IllegalArgumentException- indicate that a method has been passed an illegal or inappropriate argument.
+	 * @throws IllegalAccessException- thrown when an application tries to reflectively create an instance (other than an array), set or get a field, or invoke a method, but the currently executing method 
+	 * 									does not have access to the definition of the specified class, field, method or constructor.
+	 * @throws InstantiationException- thrown when an application tries to create an instance of a class using the newInstance method in class Class, but the specified class object cannot be instantiated.  
+	 * @throws NoSuchFieldException- signals that the class doesn't have a field of a specified name.
+	 * @throws SecurityException- thrown by the security manager to indicate a security violation.
+	 * @throws NoSuchMethodException- thrown when a particular method cannot be found.
+
 	 */
 	
 	public GoogleResult1 clearSearchQuery() throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
