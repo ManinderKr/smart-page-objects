@@ -41,7 +41,7 @@ public class GoogleTest1 {
 	}
 	
 
-	@Test
+	//@Test
 	public void should_Be_Able_To_Enter_Text_In_BoxComponent() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		Google1 googlePage = new Google1( Url);
@@ -69,7 +69,7 @@ public class GoogleTest1 {
 			
 	}
 
-	//@Test
+	@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
 		Google1 googlePage = new Google1(Url);

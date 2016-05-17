@@ -14,6 +14,7 @@ public class ConfigurationClass {
 			prop=new Properties();
 			try {
 				prop.load(input);
+				
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
@@ -27,7 +28,7 @@ public class ConfigurationClass {
 		 */
 		
 		public  String getBrowser(){
-			return prop.getProperty("browser");
+			return (prop.getProperty("browser"));
 		}
 		
 		/**

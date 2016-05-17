@@ -5,7 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import rieit.config.ChromeOpt;
 import rieit.config.ConfigurationClass;
+import rieit.config.FirefoxOpt;
 
 public class DriverFactory
 {
@@ -25,7 +27,7 @@ public class DriverFactory
 	{
 		protected WebDriver initialValue()
 		{
-			Dimension d = new Dimension(1000,1000);
+			Dimension d = null ;
 			
 			ConfigurationClass config= new ConfigurationClass();
 			String browser = config.getBrowser();
@@ -33,10 +35,24 @@ public class DriverFactory
 			
 			try{
 				if (browser.equalsIgnoreCase("Firefox")) {
+					
+					FirefoxOpt firefoxopt = new FirefoxOpt();
+					d=firefoxopt.getDimension();
+					firefoxopt.getCount();
+					firefoxopt.getMaxInstances();
+					firefoxopt.getShardTestFiles();
+					
 				webDriver = new FirefoxDriver();
 			} else if (browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
 						"/home/administrator/Downloads/chromedriver");
+				
+					ChromeOpt chromeOpt = new ChromeOpt();
+					d=chromeOpt.getDimension();
+					chromeOpt.getCount();
+					chromeOpt.getMaxInstances();
+					chromeOpt.getShardTestFiles();
+				
 				webDriver = new ChromeDriver();
 			} /*else if (browser.equalsIgnoreCase("IE")) {
 				System.setProperty("webdriver.ie.driver",

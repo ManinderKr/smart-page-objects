@@ -1,0 +1,5 @@
+width=700
+height=700
+count = 1                     
+shardTestFiles = false         
+maxInstances = 1                  

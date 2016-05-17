@@ -12,7 +12,7 @@ public class PostPageComponentInjectionProcessor {
 	 * {@link PostPageComponentInjectionProcessor} {@link #PostPageComponentInjectionProcessor(Object)} inject the pageComponents 
 	 * declared by the user into a list.
 	 * 
-	 * @return List of PageCOmponents.
+	 * @return List of PageComponents.
 	 */
 	
 	public PostPageComponentInjectionProcessor (Object instance) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException{
