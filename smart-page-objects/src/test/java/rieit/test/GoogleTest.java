@@ -3,13 +3,12 @@ package rieit.test;
 import static org.junit.Assert.*;
 import java.lang.reflect.InvocationTargetException;
 import org.junit.Test;
-import rieit.app.Google1;
-import rieit.app.GoogleResult1;
+import rieit.app.Google;
+import rieit.app.GoogleResult;
 import rieit.config.ConfigurationClass;
-import rieit.page.BasePage;
 import org.junit.After;
 
-public class GoogleTest1 {
+public class GoogleTest {
 
 	ConfigurationClass config= new ConfigurationClass();
 	String Url = config.getUrl();
@@ -17,7 +16,7 @@ public class GoogleTest1 {
 	//@Test
 	public void should_Return_Url() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
-		BasePage googlePage = new Google1(Url);
+		Google googlePage = new Google(Url);
 
 		googlePage.open(); // should able to open the correct Url.
 
@@ -32,7 +31,7 @@ public class GoogleTest1 {
 	//@Test
 	public void should_Return_Page_Is_Ready() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		BasePage googlePage = new Google1( Url);
+		Google googlePage = new Google( Url);
 
 		googlePage.open();
 
@@ -44,7 +43,7 @@ public class GoogleTest1 {
 	//@Test
 	public void should_Be_Able_To_Enter_Text_In_BoxComponent() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		Google1 googlePage = new Google1( Url);
+		Google googlePage = new Google( Url);
 
 		googlePage.open();
 		
@@ -54,12 +53,12 @@ public class GoogleTest1 {
 			
 	}
 
-	//@Test
+	@Test
 	public void should_Be_Able_To_Navigate_To_Result_Page_After_Entering_The_Search_Criteria() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		Google1 googlePage = new Google1(Url);
+		Google googlePage = new Google(Url);
 			
-		GoogleResult1 googleResult = new GoogleResult1(Url);
+		GoogleResult googleResult = new GoogleResult(Url);
 
 		googlePage.open();
 
@@ -69,10 +68,10 @@ public class GoogleTest1 {
 			
 	}
 
-	@Test
+	//@Test
 	public void should_Not_Be_Able_To_Navigate_To_Result_Page_Witout_Entering_The_Search_Criteria() throws NoSuchFieldException, SecurityException, NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-		Google1 googlePage = new Google1(Url);
+		Google googlePage = new Google(Url);
 
 		googlePage.open();
 

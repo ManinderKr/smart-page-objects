@@ -1,10 +1,16 @@
 package rieit.test;
 
+import static org.openqa.selenium.remote.CapabilityType.PLATFORM;
+import static org.openqa.selenium.remote.CapabilityType.BROWSER_NAME;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import rieit.config.ChromeOpt;
 import rieit.config.ConfigurationClass;
 import rieit.config.FirefoxOpt;
@@ -37,23 +43,32 @@ public class DriverFactory
 				if (browser.equalsIgnoreCase("Firefox")) {
 					
 					FirefoxOpt firefoxopt = new FirefoxOpt();
-					d=firefoxopt.getDimension();
-					firefoxopt.getCount();
-					firefoxopt.getMaxInstances();
-					firefoxopt.getShardTestFiles();
+					 
+					FirefoxBinary binary= new FirefoxBinary();
+						binary.addCommandLineOptions("/usr/bin/firefox");
+			
+					DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+						capabilities.setCapability(BROWSER_NAME, browser);
+						capabilities.setCapability(PLATFORM, firefoxopt.getPlatform());
+						
+						d=firefoxopt.getDimension();
 					
-				webDriver = new FirefoxDriver();
+					webDriver = new FirefoxDriver(binary, new FirefoxProfile() , capabilities);
+				
 			} else if (browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
 						"/home/administrator/Downloads/chromedriver");
 				
 					ChromeOpt chromeOpt = new ChromeOpt();
-					d=chromeOpt.getDimension();
-					chromeOpt.getCount();
-					chromeOpt.getMaxInstances();
-					chromeOpt.getShardTestFiles();
+					
+					DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+						capabilities.setCapability(BROWSER_NAME, browser);
+						capabilities.setCapability(PLATFORM, Platform.fromString(chromeOpt.getPlatform()));
+						
+						d=chromeOpt.getDimension();
 				
-				webDriver = new ChromeDriver();
+					webDriver = new ChromeDriver(capabilities);
+				
 			} /*else if (browser.equalsIgnoreCase("IE")) {
 				System.setProperty("webdriver.ie.driver",
 						"/home/administrator/Downloads/selenium-2.41.0/selenium-server-2.41.0");

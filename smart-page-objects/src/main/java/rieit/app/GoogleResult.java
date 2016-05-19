@@ -6,7 +6,7 @@ import rieit.page.WebPageComponent;
 import rieit.page.LocatorAnnotationProcessor;
 import rieit.page.PageComponent;
 
-public class GoogleResult1 extends BasePage{
+public class GoogleResult extends BasePage{
 
 	@WebPageComponent(id = "rcnt")
 	private ResultComponent ResultComponent ;
@@ -16,7 +16,7 @@ public class GoogleResult1 extends BasePage{
 	   	LocatorAnnotationProcessor.inject(this);
   	}
 
-    public GoogleResult1(String url) throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public GoogleResult(String url) throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
     	super(url);
     	call();
 	}

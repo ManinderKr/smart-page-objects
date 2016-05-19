@@ -36,35 +36,14 @@ public class ChromeOpt {
 			return dimension;
 		}
 		
-		
 		/**
-		 * {@link ChromeOpt}{@link getCount()} gives the number of times to run this set of capabilities/tests.
-		 *         
+		 * {@link ChromeOpt}{@link getPlatform()} specify the platform on which the browser should be run.
+		 * 											
+		 *  @return   A platform wheather {WINDOWS|XP|VISTA|MAC|LINUX|UNIX|ANDROID}.      
 		 */
 		
-		public  String getCount(){
-			return (prop.getProperty("count"));
+		public  String getPlatform(){
+			return (prop.getProperty("platform"));
 		}
 		
-		
-		/**
-		 * {@link ChromeOpt}{@link getShardTestFiles()} tells wheather the tests are shared by the no. of browsers or not.
-		 *  
-		 * @param <code>true</code> if the tests are shared by no. of browsers.
-		 * 			<code>false</code> if the tests are not shared.									       
-		 */
-		
-		public  String getShardTestFiles(){
-			return (prop.getProperty("sharedTestFiles"));
-		}
-		
-		/**
-		 * {@link ChromeOpt}{@link getMaxInstances()} gives the maximum number of browser instances that can run in parallel for this
-     	 *											set of capabilities. This is only needed if shardTestFiles is true.
-		 *         
-		 */
-		
-		public  String getMaxInstances(){
-			return (prop.getProperty("maxInstances"));
-		}
 }

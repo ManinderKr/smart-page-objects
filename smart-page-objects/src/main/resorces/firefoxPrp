@@ -1,5 +1,3 @@
 width = 1000
 height = 1000
-count = 1
-shardTestFiles = false
-maxInstances = 1
+platform = linux

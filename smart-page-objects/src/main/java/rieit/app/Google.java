@@ -6,7 +6,7 @@ import rieit.page.LocatorAnnotationProcessor;
 import rieit.page.PageComponent;
 import rieit.page.WebPageComponent;
 
-public class Google1 extends BasePage{
+public class Google extends BasePage{
 
 	@WebPageComponent(id="lst-ib")
 	private BoxComponent searchBoxComponent ; 
@@ -19,7 +19,7 @@ public class Google1 extends BasePage{
 	   		LocatorAnnotationProcessor.inject(this);
   		}
 
-	public Google1(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
+	public Google(String url) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException {
 			super(url);
 			call();
 		}
@@ -41,9 +41,9 @@ public class Google1 extends BasePage{
 
 	 */
 	
-	public GoogleResult1 boxComponent() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException  {
+	public GoogleResult boxComponent() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException  {
 		locate(BoxComponent.class);			
-		return new GoogleResult1("http://www.google.com/");
+		return new GoogleResult("http://www.google.com/");
 	}
 	
 		
@@ -72,9 +72,9 @@ public class Google1 extends BasePage{
 		locate(ButtonComponent.class).click();
 				
 		if (query.trim().equals(""))
-		return (P) new Google1( "http://www.google.com/" );
+		return (P) new Google( "http://www.google.com/" );
 
-		return (P) new GoogleResult1("http://www.google.com/");
+		return (P) new GoogleResult("http://www.google.com/");
 	}
 	
 	
@@ -94,10 +94,10 @@ public class Google1 extends BasePage{
 
 	 */
 	
-	public GoogleResult1 clearSearchQuery() throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public GoogleResult clearSearchQuery() throws NoSuchMethodException, SecurityException, NoSuchFieldException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		locate(BoxComponent.class).clearQuery();
 		
-		return new GoogleResult1("http://www.google.com/");
+		return new GoogleResult("http://www.google.com/");
 	}
 	
 	

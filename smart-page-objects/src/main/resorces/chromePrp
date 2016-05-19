@@ -1,5 +1,3 @@
-width=700
-height=700
-count = 1                     
-shardTestFiles = false         
-maxInstances = 1                  
+width = 700
+height = 700
+platform = linux

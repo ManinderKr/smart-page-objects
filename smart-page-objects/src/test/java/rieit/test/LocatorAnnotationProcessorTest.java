@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import org.junit.After;
 import org.junit.Test;
-import rieit.app.Google1;
+import rieit.app.Google;
 import rieit.config.ConfigurationClass;
 import rieit.page.PageComponent;
 import rieit.page.PostPageComponentInjectionProcessor;
@@ -18,7 +18,7 @@ public class LocatorAnnotationProcessorTest {
 	@Test
 	public void Should_Be_Able_To_Check_The_Output_List_Of_Components_Contained_Same_Components_Which_Are_Passed_As_Annotations_To_This_Class() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, InstantiationException, NoSuchFieldException, SecurityException, NoSuchMethodException{
 	
-		Google1 googlePage = new Google1(Url);
+		Google googlePage = new Google(Url);
 		
 		PostPageComponentInjectionProcessor postPageComponentInjectionProcessor= new PostPageComponentInjectionProcessor(googlePage);
 		
